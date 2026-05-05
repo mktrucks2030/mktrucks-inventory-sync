@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, base64, tempfile, time, requests, pandas as pd
+import os, base64, tempfile, re, requests, pandas as pd
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -9,9 +9,10 @@ GMAIL_CLIENT_SECRET = os.environ["GMAIL_CLIENT_SECRET"]
 GMAIL_REFRESH_TOKEN = os.environ["GMAIL_REFRESH_TOKEN"]
 MATRIXIFY_API_KEY   = os.environ["MATRIXIFY_API_KEY"]
 SHOPIFY_STORE       = os.environ["SHOPIFY_STORE"]
+RC_EMAIL            = os.environ["RC_EMAIL"]
+RC_PASSWORD         = os.environ["RC_PASSWORD"]
 
 WP_SENDERS = ["noreply@wheelpros.com","data@wheelpros.com","edi@wheelpros.com"]
-RC_SENDERS = ["noreply@roughcountry.com","data@roughcountry.com","jobber@roughcountry.com"]
 MATRIXIFY_API = f"https://app.matrixify.app/api/v1/stores/{SHOPIFY_STORE}"
 
 def get_gmail_service():
@@ -42,6 +43,47 @@ def find_latest_attachments(service, senders, exts=(".csv",".xlsx")):
             return atts
     return []
 
+def download_roughcountry():
+    print("  Logging in to RoughCountry...")
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
+    login_page = session.get("https://www.roughcountry.com/account/login")
+    csrf_token = ""
+    match = re.search(r'name=["\']csrf[_-]?token["\'][^>]*value=["\']([^"\']+)["\']', login_page.text, re.I)
+    if not match:
+        match = re.search(r'value=["\']([^"\']+)["\'][^>]*name=["\']csrf[_-]?token["\']', login_page.text, re.I)
+    if match:
+        csrf_token = match.group(1)
+    resp = session.post("https://www.roughcountry.com/account/login",
+                        data={"email": RC_EMAIL, "password": RC_PASSWORD, "csrf_token": csrf_token},
+                        allow_redirects=True)
+    if "account/login" in resp.url:
+        resp = session.post("https://www.roughcountry.com/api/account/login",
+                           json={"email": RC_EMAIL, "password": RC_PASSWORD},
+                           headers={"Content-Type": "application/json"})
+    print(f"  Login: {resp.status_code} {resp.url}")
+    downloads_page = session.get("https://www.roughcountry.com/account/downloads")
+    print(f"  Downloads page: {downloads_page.status_code}")
+    links = re.findall(r'href=["\']([^"\']*(?:jobber|inventory|download)[^"\']*)["\']', downloads_page.text, re.I)
+    if not links:
+        links = re.findall(r'href=["\']([^"\']*\.(?:xlsx|csv)[^"\']*)["\']', downloads_page.text, re.I)
+    print(f"  Links found: {links[:3]}")
+    for link in links[:5]:
+        url = link if link.startswith("http") else f"https://www.roughcountry.com{link}"
+        r = session.get(url)
+        if r.status_code == 200 and len(r.content) > 1000:
+            ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
+            print(f"  Downloaded: {len(r.content)} bytes")
+            return [(f"roughcountry{ext}", r.content)]
+    for url in ["https://www.roughcountry.com/account/downloads/jobber",
+                "https://www.roughcountry.com/media/downloads/jobber_pc1.xlsx"]:
+        r = session.get(url)
+        if r.status_code == 200 and len(r.content) > 1000:
+            ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
+            print(f"  Downloaded from {url}")
+            return [(f"roughcountry{ext}", r.content)]
+    return []
+
 def index_tech(df, sku_col, img_cols):
     if df is None: return {}
     result = {}
@@ -66,12 +108,10 @@ def process_wheelpros(attachments):
             elif "tire_tech" in fn or ("tire" in fn and "tech" in fn): tire_tech = pd.read_csv(tmp, low_memory=False)
             elif "lighting" in fn: lights_tech = pd.read_csv(tmp, low_memory=False)
         finally: os.unlink(tmp)
-
-    w_imgs = index_tech(wheel_tech,  "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
+    w_imgs = index_tech(wheel_tech, "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
     a_imgs = index_tech(access_tech, "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
-    t_imgs = index_tech(tire_tech,   "sku", ["image_url"])
+    t_imgs = index_tech(tire_tech, "sku", ["image_url"])
     l_imgs = index_tech(lights_tech, "SKU", [f"ImageLink{i}" for i in range(1,16)])
-
     rows = []
     def add_rows(inv_df, tech_idx):
         if inv_df is None: return
@@ -86,12 +126,10 @@ def process_wheelpros(attachments):
             for pos, url in enumerate(images, 1):
                 rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": url,
                              "Image Position": pos, "Image Alt Text": str(row.get("PartDescription",""))[:255]})
-
     add_rows(wheel_inv, w_imgs); add_rows(access_inv, a_imgs); add_rows(tire_inv, t_imgs)
     for sku, imgs in l_imgs.items():
         for pos, img in enumerate(imgs, 1):
             rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": img, "Image Position": pos, "Image Alt Text": ""})
-
     df = pd.DataFrame(rows)
     print(f"  WP: {df['Handle'].nunique()} products, {len(df)} images")
     return df
@@ -142,15 +180,15 @@ def main():
     else:
         print("  No WheelPros emails found in last 7 days")
 
-    print("\nSearching RoughCountry emails...")
-    rc_atts = find_latest_attachments(service, RC_SENDERS, (".xlsx",".csv"))
+    print("\nDownloading RoughCountry from portal...")
+    rc_atts = download_roughcountry()
     if rc_atts:
         rc_df = process_roughcountry(rc_atts)
         if not rc_df.empty:
             rc_df.to_csv("/tmp/rc.csv", index=False)
             upload_to_matrixify("/tmp/rc.csv", "RoughCountry")
     else:
-        print("  No RoughCountry emails found in last 7 days")
+        print("  Could not download RC file")
 
     print("\nSync complete!")
 

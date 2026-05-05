@@ -29,6 +29,6 @@ jobs:
           GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
           MATRIXIFY_API_KEY:   ${{ secrets.MATRIXIFY_API_KEY }}
           SHOPIFY_STORE:       ${{ secrets.SHOPIFY_STORE }}
-RC_EMAIL:            ${{ secrets.RC_EMAIL }}
+          RC_EMAIL:            ${{ secrets.RC_EMAIL }}
           RC_PASSWORD:         ${{ secrets.RC_PASSWORD }}
         run: python sync.py

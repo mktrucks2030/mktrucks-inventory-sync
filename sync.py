@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, base64, tempfile, re, requests, pandas as pd, zipfile, io, hashlib
+import os, base64, tempfile, re, requests, pandas as pd, zipfile, io, hashlib, time
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -8,9 +8,11 @@ GMAIL_CLIENT_ID     = os.environ["GMAIL_CLIENT_ID"]
 GMAIL_CLIENT_SECRET = os.environ["GMAIL_CLIENT_SECRET"]
 GMAIL_REFRESH_TOKEN = os.environ["GMAIL_REFRESH_TOKEN"]
 MATRIXIFY_API_KEY   = os.environ["MATRIXIFY_API_KEY"]
+GITHUB_TOKEN        = os.environ["GITHUB_TOKEN"]
 RC_EMAIL            = os.environ["RC_EMAIL"]
 RC_PASSWORD         = os.environ["RC_PASSWORD"]
 
+GITHUB_REPO   = "mktrucks2030/mktrucks-inventory-sync"
 MATRIXIFY_API = "https://app.matrixify.app/api/v1"
 
 def get_gmail_service():
@@ -47,28 +49,23 @@ def download_wheelpros(service):
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0"})
     all_files = []
-
     query = 'subject:"WHEEL PROS INVENTORY FEED IS READY" newer_than:2d'
     msgs = service.users().messages().list(userId="me", q=query, maxResults=5).execute().get("messages", [])
     print(f"  Found {len(msgs)} inventory email(s)")
-
     for msg in msgs[:1]:
         body = get_email_body(service, msg["id"])
         urls = re.findall(r'https://backend\.api\.data\.wheelpros\.com/[^\s"\'<>]+', body)
         hrefs = re.findall(r'href=["\']([^"\']*wheelpros\.com[^"\']*)["\']', body)
         all_urls = list(set([u.replace("&amp;", "&") for u in urls + hrefs]))
         print(f"  Found {len(all_urls)} download URL(s)")
-
         for url in all_urls:
             try:
                 r = session.get(url, timeout=180)
                 if r.status_code != 200 or len(r.content) < 1000:
-                    print(f"  Bad response: {r.status_code}")
                     continue
                 if r.content[:4] == b"PK\x03\x04":
-                    print(f"  Downloaded ZIP: {len(r.content):,} bytes — extracting...")
+                    print(f"  Downloaded ZIP: {len(r.content):,} bytes")
                     with zipfile.ZipFile(io.BytesIO(r.content)) as zf:
-                        print(f"  ZIP contents: {zf.namelist()}")
                         for name in zf.namelist():
                             data = zf.read(name)
                             print(f"    Extracted: {name} ({len(data):,} bytes)")
@@ -78,11 +75,9 @@ def download_wheelpros(service):
                     filename = fn_match.group(1).split(",")[0] if fn_match else "wp_data.csv"
                     if not filename.lower().endswith(".csv"):
                         filename += ".csv"
-                    print(f"  Downloaded: {filename} ({len(r.content):,} bytes)")
                     all_files.append((filename, r.content))
             except Exception as e:
                 print(f"  Error: {e}")
-
     return all_files
 
 def download_roughcountry():
@@ -134,7 +129,6 @@ def index_tech(df, sku_col, img_cols):
 def process_wheelpros(attachments):
     wheel_inv = access_inv = tire_inv = None
     wheel_tech = access_tech = tire_tech = lights_tech = None
-
     for filename, data in attachments:
         fn = filename.lower()
         fn_base = fn.split("/")[-1].split("\\")[-1]
@@ -143,44 +137,25 @@ def process_wheelpros(attachments):
         try:
             df_tmp = pd.read_csv(tmp, low_memory=False)
             print(f"  File: {fn_base} | cols: {list(df_tmp.columns)[:4]}")
-            if "wheelinvpricedata" in fn_base:
-                wheel_inv = df_tmp
-                print(f"  → Wheel inventory: {len(wheel_inv)} rows")
-            elif "tireinvpricedata" in fn_base:
-                tire_inv = df_tmp
-                print(f"  → Tire inventory: {len(tire_inv)} rows")
-            elif "accessoriesinvpricedata" in fn_base:
-                access_inv = df_tmp
-                print(f"  → Accessory inventory: {len(access_inv)} rows")
-            elif "wheel_techguide" in fn_base:
-                wheel_tech = df_tmp
-                print(f"  → Wheel tech: {len(wheel_tech)} rows")
-            elif "accessory_techguide" in fn_base:
-                access_tech = df_tmp
-                print(f"  → Accessory tech: {len(access_tech)} rows")
-            elif "tire_techguide" in fn_base:
-                tire_tech = df_tmp
-                print(f"  → Tire tech: {len(tire_tech)} rows")
-            elif "lighting_techguide" in fn_base:
-                lights_tech = df_tmp
-                print(f"  → Lighting tech: {len(lights_tech)} rows")
-            else:
-                print(f"  → Unrecognized: {fn_base}")
+            if "wheelinvpricedata" in fn_base: wheel_inv = df_tmp; print(f"  → Wheel inv: {len(wheel_inv)}")
+            elif "tireinvpricedata" in fn_base: tire_inv = df_tmp; print(f"  → Tire inv: {len(tire_inv)}")
+            elif "accessoriesinvpricedata" in fn_base: access_inv = df_tmp; print(f"  → Access inv: {len(access_inv)}")
+            elif "wheel_techguide" in fn_base: wheel_tech = df_tmp
+            elif "accessory_techguide" in fn_base: access_tech = df_tmp
+            elif "tire_techguide" in fn_base: tire_tech = df_tmp
+            elif "lighting_techguide" in fn_base: lights_tech = df_tmp
+            else: print(f"  → Unrecognized: {fn_base}")
         except Exception as e:
-            print(f"  Error reading {fn_base}: {e}")
+            print(f"  Error: {e}")
         finally:
             os.unlink(tmp)
-
     w_imgs = index_tech(wheel_tech,  "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
     a_imgs = index_tech(access_tech, "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
     t_imgs = index_tech(tire_tech,   "sku", ["image_url"])
     l_imgs = index_tech(lights_tech, "SKU", [f"ImageLink{i}" for i in range(1,16)])
-
     rows = []
     def add_rows(inv_df, tech_idx, label):
-        if inv_df is None:
-            print(f"  No {label} inventory — skipping")
-            return
+        if inv_df is None: print(f"  No {label} — skipping"); return
         active = inv_df[inv_df["TotalQOH"] > 0]
         print(f"  {label}: {len(active)} active SKUs")
         for _, row in active.iterrows():
@@ -194,19 +169,13 @@ def process_wheelpros(attachments):
             for pos, url in enumerate(images, 1):
                 rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": url,
                              "Image Position": pos, "Image Alt Text": str(row.get("PartDescription",""))[:255]})
-
-    add_rows(wheel_inv,  w_imgs, "Wheels")
+    add_rows(wheel_inv, w_imgs, "Wheels")
     add_rows(access_inv, a_imgs, "Accessories")
-    add_rows(tire_inv,   t_imgs, "Tires")
+    add_rows(tire_inv, t_imgs, "Tires")
     for sku, imgs in l_imgs.items():
         for pos, img in enumerate(imgs, 1):
-            rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": img,
-                         "Image Position": pos, "Image Alt Text": ""})
-
-    if not rows:
-        print("  ⚠️ No WP rows — check inventory files")
-        return pd.DataFrame()
-
+            rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": img, "Image Position": pos, "Image Alt Text": ""})
+    if not rows: print("  ⚠️ No WP rows"); return pd.DataFrame()
     df = pd.DataFrame(rows)
     print(f"  WP TOTAL: {df['Handle'].nunique():,} products, {len(df):,} images")
     return df
@@ -231,64 +200,45 @@ def process_roughcountry(attachments):
                                  "Image Position": pos, "Image Alt Text": str(row.get("title",""))[:255]})
         finally:
             os.unlink(tmp)
-    if not rows:
-        return pd.DataFrame()
+    if not rows: return pd.DataFrame()
     df = pd.DataFrame(rows)
     print(f"  RC TOTAL: {df['Handle'].nunique():,} products, {len(df):,} images")
     return df
 
-def upload_to_matrixify(csv_path, label):
-    print(f"  Uploading {label} to Matrixify...")
+def upload_csv_to_github(csv_path, filename):
+    """Sube CSV a GitHub y retorna URL publica raw."""
+    print(f"  Uploading {filename} to GitHub...")
     with open(csv_path, "rb") as f:
-        file_data = f.read()
+        content = f.read()
+    content_b64 = base64.b64encode(content).decode()
+    headers = {"Authorization": f"token {GITHUB_TOKEN}",
+               "Accept": "application/vnd.github.v3+json"}
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/temp/{filename}"
+    # Check if file exists to get SHA
+    get_resp = requests.get(url, headers=headers)
+    sha = get_resp.json().get("sha") if get_resp.status_code == 200 else None
+    payload = {"message": f"sync: update {filename}", "content": content_b64}
+    if sha:
+        payload["sha"] = sha
+    put_resp = requests.put(url, headers=headers, json=payload)
+    print(f"  GitHub upload: {put_resp.status_code}")
+    raw_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/temp/{filename}"
+    return raw_url
 
-    file_size = len(file_data)
-    md5 = base64.b64encode(hashlib.md5(file_data).digest()).decode()
-    filename = os.path.basename(csv_path)
-
-    # Step 1: Get presigned upload URL
-    resp = requests.post(
-        f"{MATRIXIFY_API}/imports/upload_url",
-        headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}",
-                 "Content-Type": "application/json"},
-        json={"byte_size": file_size, "checksum": md5,
-              "content_type": "text/csv", "filename": filename}
-    )
-    print(f"  Upload URL: {resp.status_code}")
-    if resp.status_code != 200:
-        print(f"  Error: {resp.text[:200]}")
+def upload_to_matrixify(raw_url, label):
+    """Importa CSV a Shopify via Matrixify desde URL."""
+    print(f"  Triggering Matrixify import for {label}...")
+    headers = {"Authorization": f"Bearer {MATRIXIFY_API_KEY}",
+               "Content-Type": "application/json"}
+    resp = requests.post(f"{MATRIXIFY_API}/imports",
+        headers=headers,
+        json={"import": {"remote_url": raw_url}})
+    print(f"  Matrixify response: {resp.status_code}")
+    if resp.status_code not in (200, 201):
+        print(f"  Error: {resp.text[:300]}")
         return None
-
-    upload_data = resp.json()
-    upload_url = upload_data.get("upload_url")
-    upload_headers = upload_data.get("upload_headers", {})
-    create_url = upload_data.get("create_from_upload_url")
-
-    # Step 2: PUT file to S3
-    put_resp = requests.put(upload_url, data=file_data, headers=upload_headers)
-    print(f"  S3 upload: {put_resp.status_code}")
-
-    # Step 3: Create import job
-    create_resp = requests.post(
-        create_url,
-        headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"}
-    )
-    print(f"  Create job: {create_resp.status_code}")
-    if create_resp.status_code not in (200, 201):
-        print(f"  Error: {create_resp.text[:200]}")
-        return None
-
-    job = create_resp.json()
+    job = resp.json()
     job_id = job.get("id")
-
-    # Step 4: Start import
-    import time
-    time.sleep(3)
-    start_resp = requests.post(
-        f"{MATRIXIFY_API}/imports/{job_id}/start",
-        headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"}
-    )
-    print(f"  Start import: {start_resp.status_code}")
     print(f"  ✅ {label} import started — Job ID: {job_id}")
     return job_id
 
@@ -302,7 +252,8 @@ def main():
         wp_df = process_wheelpros(wp_atts)
         if not wp_df.empty:
             wp_df.to_csv("/tmp/Products.csv", index=False)
-            upload_to_matrixify("/tmp/Products.csv", "WheelPros")
+            raw_url = upload_csv_to_github("/tmp/Products.csv", "wp_products.csv")
+            upload_to_matrixify(raw_url, "WheelPros")
         else:
             print("  ⚠️ WP DataFrame empty")
     else:
@@ -314,7 +265,8 @@ def main():
         rc_df = process_roughcountry(rc_atts)
         if not rc_df.empty:
             rc_df.to_csv("/tmp/Products_RC.csv", index=False)
-            upload_to_matrixify("/tmp/Products_RC.csv", "RoughCountry")
+            raw_url = upload_csv_to_github("/tmp/Products_RC.csv", "rc_products.csv")
+            upload_to_matrixify(raw_url, "RoughCountry")
         else:
             print("  ⚠️ RC DataFrame empty")
     else:

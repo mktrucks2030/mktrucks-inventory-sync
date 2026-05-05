@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, base64, tempfile, re, requests, pandas as pd, zipfile, io
+import os, base64, tempfile, re, requests, pandas as pd, zipfile, io, hashlib
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -142,7 +142,6 @@ def process_wheelpros(attachments):
             f.write(data); tmp = f.name
         try:
             df_tmp = pd.read_csv(tmp, low_memory=False)
-            cols = [c.lower() for c in df_tmp.columns]
             print(f"  File: {fn_base} | cols: {list(df_tmp.columns)[:4]}")
             if "wheelinvpricedata" in fn_base:
                 wheel_inv = df_tmp
@@ -241,14 +240,57 @@ def process_roughcountry(attachments):
 def upload_to_matrixify(csv_path, label):
     print(f"  Uploading {label} to Matrixify...")
     with open(csv_path, "rb") as f:
-        resp = requests.post(f"{MATRIXIFY_API}/imports",
-            headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"},
-            files={"file": (os.path.basename(csv_path), f, "text/csv")},
-            data={"reimport": "true"})
-    resp.raise_for_status()
-    job = resp.json()
-    print(f"  ✅ {label} import started — Job ID: {job.get('id')}")
-    return job.get("id")
+        file_data = f.read()
+
+    file_size = len(file_data)
+    md5 = base64.b64encode(hashlib.md5(file_data).digest()).decode()
+    filename = os.path.basename(csv_path)
+
+    # Step 1: Get presigned upload URL
+    resp = requests.post(
+        f"{MATRIXIFY_API}/imports/upload_url",
+        headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}",
+                 "Content-Type": "application/json"},
+        json={"byte_size": file_size, "checksum": md5,
+              "content_type": "text/csv", "filename": filename}
+    )
+    print(f"  Upload URL: {resp.status_code}")
+    if resp.status_code != 200:
+        print(f"  Error: {resp.text[:200]}")
+        return None
+
+    upload_data = resp.json()
+    upload_url = upload_data.get("upload_url")
+    upload_headers = upload_data.get("upload_headers", {})
+    create_url = upload_data.get("create_from_upload_url")
+
+    # Step 2: PUT file to S3
+    put_resp = requests.put(upload_url, data=file_data, headers=upload_headers)
+    print(f"  S3 upload: {put_resp.status_code}")
+
+    # Step 3: Create import job
+    create_resp = requests.post(
+        create_url,
+        headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"}
+    )
+    print(f"  Create job: {create_resp.status_code}")
+    if create_resp.status_code not in (200, 201):
+        print(f"  Error: {create_resp.text[:200]}")
+        return None
+
+    job = create_resp.json()
+    job_id = job.get("id")
+
+    # Step 4: Start import
+    import time
+    time.sleep(3)
+    start_resp = requests.post(
+        f"{MATRIXIFY_API}/imports/{job_id}/start",
+        headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"}
+    )
+    print(f"  Start import: {start_resp.status_code}")
+    print(f"  ✅ {label} import started — Job ID: {job_id}")
+    return job_id
 
 def main():
     print("🚀 Starting MK Trucks Inventory Sync...")
@@ -259,8 +301,8 @@ def main():
     if wp_atts:
         wp_df = process_wheelpros(wp_atts)
         if not wp_df.empty:
-            wp_df.to_csv("/tmp/wp.csv", index=False)
-            upload_to_matrixify("/tmp/wp.csv", "WheelPros")
+            wp_df.to_csv("/tmp/Products.csv", index=False)
+            upload_to_matrixify("/tmp/Products.csv", "WheelPros")
         else:
             print("  ⚠️ WP DataFrame empty")
     else:
@@ -271,8 +313,8 @@ def main():
     if rc_atts:
         rc_df = process_roughcountry(rc_atts)
         if not rc_df.empty:
-            rc_df.to_csv("/tmp/rc.csv", index=False)
-            upload_to_matrixify("/tmp/rc.csv", "RoughCountry")
+            rc_df.to_csv("/tmp/Products_RC.csv", index=False)
+            upload_to_matrixify("/tmp/Products_RC.csv", "RoughCountry")
         else:
             print("  ⚠️ RC DataFrame empty")
     else:

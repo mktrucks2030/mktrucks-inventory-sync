@@ -24,66 +24,65 @@ def get_gmail_service():
 
 def get_email_body(service, msg_id):
     msg = service.users().messages().get(userId="me", id=msg_id, format="full").execute()
-    parts = msg.get("payload", {}).get("parts", [])
     body = ""
-    # Check parts for HTML/text
-    for part in parts:
-        if part.get("mimeType") in ("text/html", "text/plain"):
-            data = part.get("body", {}).get("data", "")
-            if data:
-                body += base64.urlsafe_b64decode(data).decode("utf-8", errors="ignore")
-    # If no parts, check body directly
-    if not body:
-        data = msg.get("payload", {}).get("body", {}).get("data", "")
+    def extract_parts(parts):
+        nonlocal body
+        for part in parts:
+            if part.get("mimeType") in ("text/html", "text/plain"):
+                data = part.get("body", {}).get("data", "")
+                if data:
+                    body += base64.urlsafe_b64decode(data).decode("utf-8", errors="ignore")
+            if part.get("parts"):
+                extract_parts(part["parts"])
+    payload = msg.get("payload", {})
+    if payload.get("parts"):
+        extract_parts(payload["parts"])
+    else:
+        data = payload.get("body", {}).get("data", "")
         if data:
             body = base64.urlsafe_b64decode(data).decode("utf-8", errors="ignore")
     return body
 
 def download_wheelpros(service):
-    """Busca emails de WheelPros por subject y descarga los archivos via links."""
     print("  Searching WheelPros emails by subject...")
     query = 'subject:"WHEEL PROS TECH DATA IS READY" newer_than:2d'
-    msgs = service.users().messages().list(userId="me", q=query, maxResults=5).execute().get("messages", [])
-    
+    msgs = service.users().messages().list(userId="me", q=query, maxResults=10).execute().get("messages", [])
     if not msgs:
-        query = 'subject:"WHEEL PROS" subject:"DATA IS READY" newer_than:7d'
-        msgs = service.users().messages().list(userId="me", q=query, maxResults=5).execute().get("messages", [])
-
+        query = 'subject:"WHEEL PROS" newer_than:7d'
+        msgs = service.users().messages().list(userId="me", q=query, maxResults=10).execute().get("messages", [])
     if not msgs:
         print("  No WheelPros emails found")
         return []
 
     print(f"  Found {len(msgs)} WheelPros email(s)")
-    
-    all_files = []
     session = requests.Session()
-    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
+    session.headers.update({"User-Agent": "Mozilla/5.0"})
+    all_files = []
+    seen_filenames = set()
 
-    for msg in msgs[:1]:  # Process most recent email only
+    # Each email has one file type — process all emails to get all files
+    for msg in msgs:
         body = get_email_body(service, msg["id"])
-        # Extract all download URLs
         urls = re.findall(r'https://backend\.api\.data\.wheelpros\.com/[^\s"\'<>]+', body)
-        # Also check href links
         hrefs = re.findall(r'href=["\']([^"\']*wheelpros\.com[^"\']*)["\']', body)
-        urls = list(set(urls + hrefs))
-        print(f"  Found {len(urls)} download URLs")
+        all_urls = list(set([u.replace("&amp;", "&") for u in urls + hrefs]))
 
-        for url in urls:
-            # Clean URL (remove HTML entities)
-            url = url.replace("&amp;", "&")
+        for url in all_urls:
+            fn_match = re.search(r'files=([^&]+)', url)
+            filename = fn_match.group(1) if fn_match else "wp_data.csv"
+            if filename in seen_filenames:
+                continue
             try:
-                r = session.get(url, timeout=60)
+                r = session.get(url, timeout=120)
                 if r.status_code == 200 and len(r.content) > 1000:
-                    # Detect filename from URL or content
-                    fn_match = re.search(r'files=([^&]+)', url)
-                    filename = fn_match.group(1) if fn_match else "wp_data.csv"
                     ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
-                    if not filename.lower().endswith(ext):
+                    if not filename.lower().endswith((".csv", ".xlsx")):
                         filename = filename + ext
-                    print(f"  Downloaded: {filename} ({len(r.content)} bytes)")
+                    print(f"  Downloaded: {filename} ({len(r.content):,} bytes)")
                     all_files.append((filename, r.content))
+                    seen_filenames.add(fn_match.group(1) if fn_match else filename)
             except Exception as e:
-                print(f"  Error downloading {url[:80]}: {e}")
+                print(f"  Error downloading {filename}: {e}")
 
     return all_files
 
@@ -113,7 +112,7 @@ def download_roughcountry():
         r = session.get(url)
         if r.status_code == 200 and len(r.content) > 1000:
             ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
-            print(f"  Downloaded: {len(r.content)} bytes")
+            print(f"  Downloaded: {len(r.content):,} bytes")
             return [(f"roughcountry{ext}", r.content)]
     for url in ["https://www.roughcountry.com/account/downloads/jobber",
                 "https://www.roughcountry.com/media/downloads/jobber_pc1.xlsx"]:
@@ -134,28 +133,53 @@ def index_tech(df, sku_col, img_cols):
     return result
 
 def process_wheelpros(attachments):
-    wheel_inv = access_inv = tire_inv = wheel_tech = access_tech = tire_tech = lights_tech = None
+    wheel_inv = access_inv = tire_inv = None
+    wheel_tech = access_tech = tire_tech = lights_tech = None
+
     for filename, data in attachments:
         fn = filename.lower()
         with tempfile.NamedTemporaryFile(suffix=os.path.splitext(filename)[1], delete=False) as f:
             f.write(data); tmp = f.name
         try:
-            if "wheelinv" in fn or ("wheel" in fn and "inv" in fn and "price" in fn): wheel_inv = pd.read_csv(tmp, low_memory=False)
-            elif "accessori" in fn and "inv" in fn: access_inv = pd.read_csv(tmp, low_memory=False)
-            elif "tire" in fn and "inv" in fn: tire_inv = pd.read_csv(tmp, low_memory=False)
-            elif "wheel_tech" in fn or ("wheel" in fn and "tech" in fn): wheel_tech = pd.read_csv(tmp, low_memory=False)
-            elif "accessory_tech" in fn or ("access" in fn and "tech" in fn): access_tech = pd.read_csv(tmp, low_memory=False)
-            elif "tire_tech" in fn or ("tire" in fn and "tech" in fn): tire_tech = pd.read_csv(tmp, low_memory=False)
-            elif "lighting" in fn: lights_tech = pd.read_csv(tmp, low_memory=False)
-        finally: os.unlink(tmp)
-    w_imgs = index_tech(wheel_tech, "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
+            if "wheelinvpricedata" in fn or ("wheel" in fn and "inv" in fn and "price" in fn):
+                wheel_inv = pd.read_csv(tmp, low_memory=False)
+                print(f"  Loaded wheel inventory: {len(wheel_inv)} rows")
+            elif "accessoriesinvpricedata" in fn or ("accessor" in fn and "inv" in fn):
+                access_inv = pd.read_csv(tmp, low_memory=False)
+                print(f"  Loaded accessory inventory: {len(access_inv)} rows")
+            elif "tireinvpricedata" in fn or ("tire" in fn and "inv" in fn):
+                tire_inv = pd.read_csv(tmp, low_memory=False)
+                print(f"  Loaded tire inventory: {len(tire_inv)} rows")
+            elif "wheel_techguide" in fn or ("wheel" in fn and "tech" in fn):
+                wheel_tech = pd.read_csv(tmp, low_memory=False)
+                print(f"  Loaded wheel tech: {len(wheel_tech)} rows")
+            elif "accessory_techguide" in fn or ("accessor" in fn and "tech" in fn):
+                access_tech = pd.read_csv(tmp, low_memory=False)
+                print(f"  Loaded accessory tech: {len(access_tech)} rows")
+            elif "tire_techguide" in fn or ("tire" in fn and "tech" in fn):
+                tire_tech = pd.read_csv(tmp, low_memory=False)
+                print(f"  Loaded tire tech: {len(tire_tech)} rows")
+            elif "lighting" in fn:
+                lights_tech = pd.read_csv(tmp, low_memory=False)
+                print(f"  Loaded lighting tech: {len(lights_tech)} rows")
+            else:
+                print(f"  Unrecognized file: {filename}")
+        finally:
+            os.unlink(tmp)
+
+    w_imgs = index_tech(wheel_tech,  "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
     a_imgs = index_tech(access_tech, "sku", ["image_url","image_url1","image_url2","image_url3","image_url4"])
-    t_imgs = index_tech(tire_tech, "sku", ["image_url"])
+    t_imgs = index_tech(tire_tech,   "sku", ["image_url"])
     l_imgs = index_tech(lights_tech, "SKU", [f"ImageLink{i}" for i in range(1,16)])
+
     rows = []
-    def add_rows(inv_df, tech_idx):
-        if inv_df is None: return
-        for _, row in inv_df[inv_df["TotalQOH"] > 0].iterrows():
+    def add_rows(inv_df, tech_idx, label):
+        if inv_df is None:
+            print(f"  No {label} inventory — skipping")
+            return
+        active = inv_df[inv_df["TotalQOH"] > 0]
+        print(f"  {label}: {len(active)} active SKUs")
+        for _, row in active.iterrows():
             sku = str(row["PartNumber"]).strip()
             images = []
             inv_img = str(row.get("ImageURL","")).strip()
@@ -166,12 +190,22 @@ def process_wheelpros(attachments):
             for pos, url in enumerate(images, 1):
                 rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": url,
                              "Image Position": pos, "Image Alt Text": str(row.get("PartDescription",""))[:255]})
-    add_rows(wheel_inv, w_imgs); add_rows(access_inv, a_imgs); add_rows(tire_inv, t_imgs)
+
+    add_rows(wheel_inv,  w_imgs, "Wheels")
+    add_rows(access_inv, a_imgs, "Accessories")
+    add_rows(tire_inv,   t_imgs, "Tires")
+
     for sku, imgs in l_imgs.items():
         for pos, img in enumerate(imgs, 1):
-            rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": img, "Image Position": pos, "Image Alt Text": ""})
+            rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": img,
+                         "Image Position": pos, "Image Alt Text": ""})
+
+    if not rows:
+        print("  ⚠️ No WP rows generated — check if inventory files were downloaded")
+        return pd.DataFrame()
+
     df = pd.DataFrame(rows)
-    print(f"  WP: {df['Handle'].nunique()} products, {len(df)} images")
+    print(f"  WP TOTAL: {df['Handle'].nunique():,} products, {len(df):,} images")
     return df
 
 def process_roughcountry(attachments):
@@ -182,20 +216,26 @@ def process_roughcountry(attachments):
             f.write(data); tmp = f.name
         try:
             rc = pd.read_excel(tmp, sheet_name="General") if fn.endswith(".xlsx") else pd.read_csv(tmp, low_memory=False)
-            for _, row in rc[rc["availability"].astype(str) != "Out Of Stock"].iterrows():
+            print(f"  RC file loaded: {len(rc)} rows")
+            active = rc[rc["availability"].astype(str) != "Out Of Stock"]
+            for _, row in active.iterrows():
                 sku = str(row["sku"]).strip()
-                images = [str(row.get(f"image_{i}","")).strip() for i in range(1,7) if str(row.get(f"image_{i}","")).strip() not in ("","nan")]
+                images = [str(row.get(f"image_{i}","")).strip() for i in range(1,7)
+                          if str(row.get(f"image_{i}","")).strip() not in ("","nan")]
                 if not images: continue
                 for pos, url in enumerate(images, 1):
                     rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": url,
                                  "Image Position": pos, "Image Alt Text": str(row.get("title",""))[:255]})
-        finally: os.unlink(tmp)
+        finally:
+            os.unlink(tmp)
+    if not rows:
+        return pd.DataFrame()
     df = pd.DataFrame(rows)
-    print(f"  RC: {df['Handle'].nunique()} products, {len(df)} images")
+    print(f"  RC TOTAL: {df['Handle'].nunique():,} products, {len(df):,} images")
     return df
 
 def upload_to_matrixify(csv_path, label):
-    print(f"  Uploading {label}...")
+    print(f"  Uploading {label} to Matrixify...")
     with open(csv_path, "rb") as f:
         resp = requests.post(f"{MATRIXIFY_API}/imports",
             headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"},
@@ -203,34 +243,38 @@ def upload_to_matrixify(csv_path, label):
             data={"reimport": "true"})
     resp.raise_for_status()
     job = resp.json()
-    print(f"  Job ID: {job.get('id')}")
+    print(f"  ✅ {label} import started — Job ID: {job.get('id')}")
     return job.get("id")
 
 def main():
-    print("Starting MK Trucks Inventory Sync...")
+    print("🚀 Starting MK Trucks Inventory Sync...")
     service = get_gmail_service()
 
-    print("\nDownloading WheelPros from email links...")
+    print("\n📦 Downloading WheelPros from email links...")
     wp_atts = download_wheelpros(service)
     if wp_atts:
         wp_df = process_wheelpros(wp_atts)
         if not wp_df.empty:
             wp_df.to_csv("/tmp/wp.csv", index=False)
             upload_to_matrixify("/tmp/wp.csv", "WheelPros")
+        else:
+            print("  ⚠️ WP DataFrame empty — no data to upload")
     else:
         print("  No WheelPros data found")
 
-    print("\nDownloading RoughCountry from portal...")
+    print("\n📦 Downloading RoughCountry from portal...")
     rc_atts = download_roughcountry()
     if rc_atts:
         rc_df = process_roughcountry(rc_atts)
         if not rc_df.empty:
             rc_df.to_csv("/tmp/rc.csv", index=False)
             upload_to_matrixify("/tmp/rc.csv", "RoughCountry")
+        else:
+            print("  ⚠️ RC DataFrame empty")
     else:
         print("  Could not download RC file")
 
-    print("\nSync complete!")
+    print("\n✅ Sync complete!")
 
 if __name__ == "__main__":
     main()

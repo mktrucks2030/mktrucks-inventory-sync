@@ -12,7 +12,6 @@ SHOPIFY_STORE       = os.environ["SHOPIFY_STORE"]
 RC_EMAIL            = os.environ["RC_EMAIL"]
 RC_PASSWORD         = os.environ["RC_PASSWORD"]
 
-WP_SENDERS = ["noreply@wheelpros.com","data@wheelpros.com","edi@wheelpros.com"]
 MATRIXIFY_API = f"https://app.matrixify.app/api/v1/stores/{SHOPIFY_STORE}"
 
 def get_gmail_service():
@@ -23,25 +22,70 @@ def get_gmail_service():
     creds.refresh(Request())
     return build("gmail", "v1", credentials=creds)
 
-def get_attachments(service, msg_id):
-    msg = service.users().messages().get(userId="me", id=msg_id).execute()
-    attachments = []
-    for part in msg.get("payload", {}).get("parts", []):
-        if part.get("filename") and part.get("body", {}).get("attachmentId"):
-            att = service.users().messages().attachments().get(
-                userId="me", messageId=msg_id, attachmentId=part["body"]["attachmentId"]).execute()
-            attachments.append((part["filename"], base64.urlsafe_b64decode(att["data"])))
-    return attachments
+def get_email_body(service, msg_id):
+    msg = service.users().messages().get(userId="me", id=msg_id, format="full").execute()
+    parts = msg.get("payload", {}).get("parts", [])
+    body = ""
+    # Check parts for HTML/text
+    for part in parts:
+        if part.get("mimeType") in ("text/html", "text/plain"):
+            data = part.get("body", {}).get("data", "")
+            if data:
+                body += base64.urlsafe_b64decode(data).decode("utf-8", errors="ignore")
+    # If no parts, check body directly
+    if not body:
+        data = msg.get("payload", {}).get("body", {}).get("data", "")
+        if data:
+            body = base64.urlsafe_b64decode(data).decode("utf-8", errors="ignore")
+    return body
 
-def find_latest_attachments(service, senders, exts=(".csv",".xlsx")):
-    q = "(" + " OR ".join(f"from:{s}" for s in senders) + ") has:attachment newer_than:7d"
-    msgs = service.users().messages().list(userId="me", q=q, maxResults=10).execute().get("messages", [])
-    for msg in msgs:
-        atts = [(fn, d) for fn, d in get_attachments(service, msg["id"]) if any(fn.lower().endswith(e) for e in exts)]
-        if atts:
-            print(f"  Found: {[fn for fn,_ in atts]}")
-            return atts
-    return []
+def download_wheelpros(service):
+    """Busca emails de WheelPros por subject y descarga los archivos via links."""
+    print("  Searching WheelPros emails by subject...")
+    query = 'subject:"WHEEL PROS TECH DATA IS READY" newer_than:2d'
+    msgs = service.users().messages().list(userId="me", q=query, maxResults=5).execute().get("messages", [])
+    
+    if not msgs:
+        query = 'subject:"WHEEL PROS" subject:"DATA IS READY" newer_than:7d'
+        msgs = service.users().messages().list(userId="me", q=query, maxResults=5).execute().get("messages", [])
+
+    if not msgs:
+        print("  No WheelPros emails found")
+        return []
+
+    print(f"  Found {len(msgs)} WheelPros email(s)")
+    
+    all_files = []
+    session = requests.Session()
+    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
+
+    for msg in msgs[:1]:  # Process most recent email only
+        body = get_email_body(service, msg["id"])
+        # Extract all download URLs
+        urls = re.findall(r'https://backend\.api\.data\.wheelpros\.com/[^\s"\'<>]+', body)
+        # Also check href links
+        hrefs = re.findall(r'href=["\']([^"\']*wheelpros\.com[^"\']*)["\']', body)
+        urls = list(set(urls + hrefs))
+        print(f"  Found {len(urls)} download URLs")
+
+        for url in urls:
+            # Clean URL (remove HTML entities)
+            url = url.replace("&amp;", "&")
+            try:
+                r = session.get(url, timeout=60)
+                if r.status_code == 200 and len(r.content) > 1000:
+                    # Detect filename from URL or content
+                    fn_match = re.search(r'files=([^&]+)', url)
+                    filename = fn_match.group(1) if fn_match else "wp_data.csv"
+                    ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
+                    if not filename.lower().endswith(ext):
+                        filename = filename + ext
+                    print(f"  Downloaded: {filename} ({len(r.content)} bytes)")
+                    all_files.append((filename, r.content))
+            except Exception as e:
+                print(f"  Error downloading {url[:80]}: {e}")
+
+    return all_files
 
 def download_roughcountry():
     print("  Logging in to RoughCountry...")
@@ -57,10 +101,6 @@ def download_roughcountry():
     resp = session.post("https://www.roughcountry.com/account/login",
                         data={"email": RC_EMAIL, "password": RC_PASSWORD, "csrf_token": csrf_token},
                         allow_redirects=True)
-    if "account/login" in resp.url:
-        resp = session.post("https://www.roughcountry.com/api/account/login",
-                           json={"email": RC_EMAIL, "password": RC_PASSWORD},
-                           headers={"Content-Type": "application/json"})
     print(f"  Login: {resp.status_code} {resp.url}")
     downloads_page = session.get("https://www.roughcountry.com/account/downloads")
     print(f"  Downloads page: {downloads_page.status_code}")
@@ -170,15 +210,15 @@ def main():
     print("Starting MK Trucks Inventory Sync...")
     service = get_gmail_service()
 
-    print("\nSearching WheelPros emails...")
-    wp_atts = find_latest_attachments(service, WP_SENDERS)
+    print("\nDownloading WheelPros from email links...")
+    wp_atts = download_wheelpros(service)
     if wp_atts:
         wp_df = process_wheelpros(wp_atts)
         if not wp_df.empty:
             wp_df.to_csv("/tmp/wp.csv", index=False)
             upload_to_matrixify("/tmp/wp.csv", "WheelPros")
     else:
-        print("  No WheelPros emails found in last 7 days")
+        print("  No WheelPros data found")
 
     print("\nDownloading RoughCountry from portal...")
     rc_atts = download_roughcountry()

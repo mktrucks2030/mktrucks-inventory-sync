@@ -8,11 +8,10 @@ GMAIL_CLIENT_ID     = os.environ["GMAIL_CLIENT_ID"]
 GMAIL_CLIENT_SECRET = os.environ["GMAIL_CLIENT_SECRET"]
 GMAIL_REFRESH_TOKEN = os.environ["GMAIL_REFRESH_TOKEN"]
 MATRIXIFY_API_KEY   = os.environ["MATRIXIFY_API_KEY"]
-SHOPIFY_STORE       = os.environ["SHOPIFY_STORE"]
 RC_EMAIL            = os.environ["RC_EMAIL"]
 RC_PASSWORD         = os.environ["RC_PASSWORD"]
 
-MATRIXIFY_API = f"https://app.matrixify.app/api/v1/stores/{SHOPIFY_STORE}"
+MATRIXIFY_API = "https://app.matrixify.app/api/v1"
 
 def get_gmail_service():
     creds = Credentials(token=None, refresh_token=GMAIL_REFRESH_TOKEN,
@@ -138,52 +137,38 @@ def process_wheelpros(attachments):
 
     for filename, data in attachments:
         fn = filename.lower()
-        # Remove folder path if present
         fn_base = fn.split("/")[-1].split("\\")[-1]
-        with tempfile.NamedTemporaryFile(suffix=os.path.splitext(fn_base)[1] or ".csv", delete=False) as f:
+        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as f:
             f.write(data); tmp = f.name
         try:
             df_tmp = pd.read_csv(tmp, low_memory=False)
             cols = [c.lower() for c in df_tmp.columns]
-            print(f"  File: {filename} | cols sample: {list(df_tmp.columns)[:4]}")
-            # Detect by columns
-            if "partnumber" in cols and "totalqoh" in cols and "boltpattern" in cols:
+            print(f"  File: {fn_base} | cols: {list(df_tmp.columns)[:4]}")
+            if "wheelinvpricedata" in fn_base:
                 wheel_inv = df_tmp
                 print(f"  → Wheel inventory: {len(wheel_inv)} rows")
-            elif "partnumber" in cols and "totalqoh" in cols and "capharewaredescription" in cols.copy() or (
-                 "partnumber" in cols and "totalqoh" in cols and "capharddescription" in "".join(cols)):
-                access_inv = df_tmp
-                print(f"  → Accessory inventory: {len(access_inv)} rows")
-            elif "partnumber" in cols and "totalqoh" in cols and "tiresize" in "".join(cols):
+            elif "tireinvpricedata" in fn_base:
                 tire_inv = df_tmp
                 print(f"  → Tire inventory: {len(tire_inv)} rows")
-            elif "partnumber" in cols and "totalqoh" in cols:
-                # Generic inventory — detect by other columns
-                if "division" in cols and "tiresize" not in "".join(cols) and "boltpattern" not in "".join(cols):
-                    access_inv = df_tmp
-                    print(f"  → Accessory inventory (generic): {len(access_inv)} rows")
-                elif "division" in cols:
-                    tire_inv = df_tmp
-                    print(f"  → Tire inventory (generic): {len(tire_inv)} rows")
-                else:
-                    wheel_inv = df_tmp
-                    print(f"  → Wheel inventory (generic): {len(wheel_inv)} rows")
-            elif "wheel_tech" in fn_base or ("wheel" in fn_base and "tech" in fn_base):
+            elif "accessoriesinvpricedata" in fn_base:
+                access_inv = df_tmp
+                print(f"  → Accessory inventory: {len(access_inv)} rows")
+            elif "wheel_techguide" in fn_base:
                 wheel_tech = df_tmp
                 print(f"  → Wheel tech: {len(wheel_tech)} rows")
-            elif "accessory_tech" in fn_base or ("accessor" in fn_base and "tech" in fn_base):
+            elif "accessory_techguide" in fn_base:
                 access_tech = df_tmp
                 print(f"  → Accessory tech: {len(access_tech)} rows")
-            elif "tire_tech" in fn_base or ("tire" in fn_base and "tech" in fn_base):
+            elif "tire_techguide" in fn_base:
                 tire_tech = df_tmp
                 print(f"  → Tire tech: {len(tire_tech)} rows")
-            elif "lighting" in fn_base:
+            elif "lighting_techguide" in fn_base:
                 lights_tech = df_tmp
                 print(f"  → Lighting tech: {len(lights_tech)} rows")
             else:
-                print(f"  → Unrecognized: {filename}")
+                print(f"  → Unrecognized: {fn_base}")
         except Exception as e:
-            print(f"  Error reading {filename}: {e}")
+            print(f"  Error reading {fn_base}: {e}")
         finally:
             os.unlink(tmp)
 

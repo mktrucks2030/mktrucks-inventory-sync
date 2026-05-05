@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, base64, tempfile, re, requests, pandas as pd
+import os, base64, tempfile, re, requests, pandas as pd, zipfile, io
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -44,45 +44,45 @@ def get_email_body(service, msg_id):
     return body
 
 def download_wheelpros(service):
-    print("  Searching WheelPros emails by subject...")
-    query = 'subject:"WHEEL PROS TECH DATA IS READY" newer_than:2d'
-    msgs = service.users().messages().list(userId="me", q=query, maxResults=10).execute().get("messages", [])
-    if not msgs:
-        query = 'subject:"WHEEL PROS" newer_than:7d'
-        msgs = service.users().messages().list(userId="me", q=query, maxResults=10).execute().get("messages", [])
-    if not msgs:
-        print("  No WheelPros emails found")
-        return []
-
-    print(f"  Found {len(msgs)} WheelPros email(s)")
+    print("  Searching WheelPros inventory emails...")
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0"})
     all_files = []
-    seen_filenames = set()
 
-    # Each email has one file type — process all emails to get all files
-    for msg in msgs:
+    query = 'subject:"WHEEL PROS INVENTORY FEED IS READY" newer_than:2d'
+    msgs = service.users().messages().list(userId="me", q=query, maxResults=5).execute().get("messages", [])
+    print(f"  Found {len(msgs)} inventory email(s)")
+
+    for msg in msgs[:1]:
         body = get_email_body(service, msg["id"])
         urls = re.findall(r'https://backend\.api\.data\.wheelpros\.com/[^\s"\'<>]+', body)
         hrefs = re.findall(r'href=["\']([^"\']*wheelpros\.com[^"\']*)["\']', body)
         all_urls = list(set([u.replace("&amp;", "&") for u in urls + hrefs]))
+        print(f"  Found {len(all_urls)} download URL(s)")
 
         for url in all_urls:
-            fn_match = re.search(r'files=([^&]+)', url)
-            filename = fn_match.group(1) if fn_match else "wp_data.csv"
-            if filename in seen_filenames:
-                continue
             try:
-                r = session.get(url, timeout=120)
-                if r.status_code == 200 and len(r.content) > 1000:
-                    ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
-                    if not filename.lower().endswith((".csv", ".xlsx")):
-                        filename = filename + ext
+                r = session.get(url, timeout=180)
+                if r.status_code != 200 or len(r.content) < 1000:
+                    print(f"  Bad response: {r.status_code}")
+                    continue
+                if r.content[:4] == b"PK\x03\x04":
+                    print(f"  Downloaded ZIP: {len(r.content):,} bytes — extracting...")
+                    with zipfile.ZipFile(io.BytesIO(r.content)) as zf:
+                        print(f"  ZIP contents: {zf.namelist()}")
+                        for name in zf.namelist():
+                            data = zf.read(name)
+                            print(f"    Extracted: {name} ({len(data):,} bytes)")
+                            all_files.append((name, data))
+                else:
+                    fn_match = re.search(r'files=([^&]+)', url)
+                    filename = fn_match.group(1).split(",")[0] if fn_match else "wp_data.csv"
+                    if not filename.lower().endswith(".csv"):
+                        filename += ".csv"
                     print(f"  Downloaded: {filename} ({len(r.content):,} bytes)")
                     all_files.append((filename, r.content))
-                    seen_filenames.add(fn_match.group(1) if fn_match else filename)
             except Exception as e:
-                print(f"  Error downloading {filename}: {e}")
+                print(f"  Error: {e}")
 
     return all_files
 
@@ -138,32 +138,52 @@ def process_wheelpros(attachments):
 
     for filename, data in attachments:
         fn = filename.lower()
-        with tempfile.NamedTemporaryFile(suffix=os.path.splitext(filename)[1], delete=False) as f:
+        # Remove folder path if present
+        fn_base = fn.split("/")[-1].split("\\")[-1]
+        with tempfile.NamedTemporaryFile(suffix=os.path.splitext(fn_base)[1] or ".csv", delete=False) as f:
             f.write(data); tmp = f.name
         try:
-            if "wheelinvpricedata" in fn or ("wheel" in fn and "inv" in fn and "price" in fn):
-                wheel_inv = pd.read_csv(tmp, low_memory=False)
-                print(f"  Loaded wheel inventory: {len(wheel_inv)} rows")
-            elif "accessoriesinvpricedata" in fn or ("accessor" in fn and "inv" in fn):
-                access_inv = pd.read_csv(tmp, low_memory=False)
-                print(f"  Loaded accessory inventory: {len(access_inv)} rows")
-            elif "tireinvpricedata" in fn or ("tire" in fn and "inv" in fn):
-                tire_inv = pd.read_csv(tmp, low_memory=False)
-                print(f"  Loaded tire inventory: {len(tire_inv)} rows")
-            elif "wheel_techguide" in fn or ("wheel" in fn and "tech" in fn):
-                wheel_tech = pd.read_csv(tmp, low_memory=False)
-                print(f"  Loaded wheel tech: {len(wheel_tech)} rows")
-            elif "accessory_techguide" in fn or ("accessor" in fn and "tech" in fn):
-                access_tech = pd.read_csv(tmp, low_memory=False)
-                print(f"  Loaded accessory tech: {len(access_tech)} rows")
-            elif "tire_techguide" in fn or ("tire" in fn and "tech" in fn):
-                tire_tech = pd.read_csv(tmp, low_memory=False)
-                print(f"  Loaded tire tech: {len(tire_tech)} rows")
-            elif "lighting" in fn:
-                lights_tech = pd.read_csv(tmp, low_memory=False)
-                print(f"  Loaded lighting tech: {len(lights_tech)} rows")
+            df_tmp = pd.read_csv(tmp, low_memory=False)
+            cols = [c.lower() for c in df_tmp.columns]
+            print(f"  File: {filename} | cols sample: {list(df_tmp.columns)[:4]}")
+            # Detect by columns
+            if "partnumber" in cols and "totalqoh" in cols and "boltpattern" in cols:
+                wheel_inv = df_tmp
+                print(f"  → Wheel inventory: {len(wheel_inv)} rows")
+            elif "partnumber" in cols and "totalqoh" in cols and "capharewaredescription" in cols.copy() or (
+                 "partnumber" in cols and "totalqoh" in cols and "capharddescription" in "".join(cols)):
+                access_inv = df_tmp
+                print(f"  → Accessory inventory: {len(access_inv)} rows")
+            elif "partnumber" in cols and "totalqoh" in cols and "tiresize" in "".join(cols):
+                tire_inv = df_tmp
+                print(f"  → Tire inventory: {len(tire_inv)} rows")
+            elif "partnumber" in cols and "totalqoh" in cols:
+                # Generic inventory — detect by other columns
+                if "division" in cols and "tiresize" not in "".join(cols) and "boltpattern" not in "".join(cols):
+                    access_inv = df_tmp
+                    print(f"  → Accessory inventory (generic): {len(access_inv)} rows")
+                elif "division" in cols:
+                    tire_inv = df_tmp
+                    print(f"  → Tire inventory (generic): {len(tire_inv)} rows")
+                else:
+                    wheel_inv = df_tmp
+                    print(f"  → Wheel inventory (generic): {len(wheel_inv)} rows")
+            elif "wheel_tech" in fn_base or ("wheel" in fn_base and "tech" in fn_base):
+                wheel_tech = df_tmp
+                print(f"  → Wheel tech: {len(wheel_tech)} rows")
+            elif "accessory_tech" in fn_base or ("accessor" in fn_base and "tech" in fn_base):
+                access_tech = df_tmp
+                print(f"  → Accessory tech: {len(access_tech)} rows")
+            elif "tire_tech" in fn_base or ("tire" in fn_base and "tech" in fn_base):
+                tire_tech = df_tmp
+                print(f"  → Tire tech: {len(tire_tech)} rows")
+            elif "lighting" in fn_base:
+                lights_tech = df_tmp
+                print(f"  → Lighting tech: {len(lights_tech)} rows")
             else:
-                print(f"  Unrecognized file: {filename}")
+                print(f"  → Unrecognized: {filename}")
+        except Exception as e:
+            print(f"  Error reading {filename}: {e}")
         finally:
             os.unlink(tmp)
 
@@ -194,14 +214,13 @@ def process_wheelpros(attachments):
     add_rows(wheel_inv,  w_imgs, "Wheels")
     add_rows(access_inv, a_imgs, "Accessories")
     add_rows(tire_inv,   t_imgs, "Tires")
-
     for sku, imgs in l_imgs.items():
         for pos, img in enumerate(imgs, 1):
             rows.append({"Handle": sku.lower(), "Command": "MERGE", "Image Src": img,
                          "Image Position": pos, "Image Alt Text": ""})
 
     if not rows:
-        print("  ⚠️ No WP rows generated — check if inventory files were downloaded")
+        print("  ⚠️ No WP rows — check inventory files")
         return pd.DataFrame()
 
     df = pd.DataFrame(rows)
@@ -216,7 +235,7 @@ def process_roughcountry(attachments):
             f.write(data); tmp = f.name
         try:
             rc = pd.read_excel(tmp, sheet_name="General") if fn.endswith(".xlsx") else pd.read_csv(tmp, low_memory=False)
-            print(f"  RC file loaded: {len(rc)} rows")
+            print(f"  RC loaded: {len(rc)} rows")
             active = rc[rc["availability"].astype(str) != "Out Of Stock"]
             for _, row in active.iterrows():
                 sku = str(row["sku"]).strip()
@@ -250,7 +269,7 @@ def main():
     print("🚀 Starting MK Trucks Inventory Sync...")
     service = get_gmail_service()
 
-    print("\n📦 Downloading WheelPros from email links...")
+    print("\n📦 Downloading WheelPros from email...")
     wp_atts = download_wheelpros(service)
     if wp_atts:
         wp_df = process_wheelpros(wp_atts)
@@ -258,7 +277,7 @@ def main():
             wp_df.to_csv("/tmp/wp.csv", index=False)
             upload_to_matrixify("/tmp/wp.csv", "WheelPros")
         else:
-            print("  ⚠️ WP DataFrame empty — no data to upload")
+            print("  ⚠️ WP DataFrame empty")
     else:
         print("  No WheelPros data found")
 

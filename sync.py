@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, base64, tempfile, re, requests, pandas as pd, zipfile, io, hashlib, time
+import os, base64, tempfile, re, requests, pandas as pd, zipfile, io, time, hashlib
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -13,7 +13,7 @@ RC_EMAIL            = os.environ["RC_EMAIL"]
 RC_PASSWORD         = os.environ["RC_PASSWORD"]
 
 GITHUB_REPO   = "mktrucks2030/mktrucks-inventory-sync"
-MATRIXIFY_API = "https://app.matrixify.app/api/v1"
+MATRIXIFY_MCP = "https://mcp.matrixify.app/mcp"
 
 def get_gmail_service():
     creds = Credentials(token=None, refresh_token=GMAIL_REFRESH_TOKEN,
@@ -205,8 +205,64 @@ def process_roughcountry(attachments):
     print(f"  RC TOTAL: {df['Handle'].nunique():,} products, {len(df):,} images")
     return df
 
+def upload_to_matrixify_via_s3(csv_path, filename):
+    """Upload CSV to Matrixify via S3 presigned URL using MCP endpoint."""
+    print(f"  Uploading {filename} to Matrixify via S3...")
+    with open(csv_path, "rb") as f:
+        file_data = f.read()
+
+    file_size = len(file_data)
+    md5 = base64.b64encode(hashlib.md5(file_data).digest()).decode()
+
+    # Step 1: Get presigned S3 URL from Matrixify MCP
+    headers = {"Authorization": f"Bearer {MATRIXIFY_API_KEY}",
+               "Content-Type": "application/json"}
+    resp = requests.post(
+        f"{MATRIXIFY_MCP}/import/get_upload_url",
+        headers=headers,
+        json={"byte_size": file_size, "checksum": md5,
+              "content_type": "text/csv", "filename": filename}
+    )
+    print(f"  Get upload URL: {resp.status_code}")
+    if resp.status_code not in (200, 201):
+        print(f"  Error: {resp.text[:200]}")
+        return None
+
+    data = resp.json()
+    upload_url = data.get("upload_url")
+    upload_headers = data.get("upload_headers", {})
+    create_url = data.get("create_from_upload_url")
+    job_id = data.get("job_id")
+
+    # Step 2: PUT file to S3
+    put_resp = requests.put(upload_url, data=file_data, headers=upload_headers)
+    print(f"  S3 upload: {put_resp.status_code}")
+    if put_resp.status_code not in (200, 201, 204):
+        print(f"  S3 error: {put_resp.text[:200]}")
+        return None
+
+    # Step 3: Create import job
+    time.sleep(2)
+    create_resp = requests.post(create_url, headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"})
+    print(f"  Create job: {create_resp.status_code}")
+    if create_resp.status_code not in (200, 201):
+        print(f"  Create error: {create_resp.text[:200]}")
+        return None
+
+    job = create_resp.json()
+    job_id = job.get("id") or job.get("job_id")
+
+    # Step 4: Wait and start
+    time.sleep(5)
+    start_resp = requests.post(
+        f"{MATRIXIFY_MCP}/import/{job_id}/start",
+        headers={"Authorization": f"Bearer {MATRIXIFY_API_KEY}"}
+    )
+    print(f"  Start: {start_resp.status_code} — Job ID: {job_id}")
+    print(f"  ✅ Import started!")
+    return job_id
+
 def upload_csv_to_github(csv_path, filename):
-    """Sube CSV a GitHub y retorna URL publica raw."""
     print(f"  Uploading {filename} to GitHub...")
     with open(csv_path, "rb") as f:
         content = f.read()
@@ -214,7 +270,6 @@ def upload_csv_to_github(csv_path, filename):
     headers = {"Authorization": f"token {GITHUB_TOKEN}",
                "Accept": "application/vnd.github.v3+json"}
     url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/temp/{filename}"
-    # Check if file exists to get SHA
     get_resp = requests.get(url, headers=headers)
     sha = get_resp.json().get("sha") if get_resp.status_code == 200 else None
     payload = {"message": f"sync: update {filename}", "content": content_b64}
@@ -222,25 +277,7 @@ def upload_csv_to_github(csv_path, filename):
         payload["sha"] = sha
     put_resp = requests.put(url, headers=headers, json=payload)
     print(f"  GitHub upload: {put_resp.status_code}")
-    raw_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/temp/{filename}"
-    return raw_url
-
-def upload_to_matrixify(raw_url, label):
-    """Importa CSV a Shopify via Matrixify desde URL."""
-    print(f"  Triggering Matrixify import for {label}...")
-    headers = {"Authorization": f"Bearer {MATRIXIFY_API_KEY}",
-               "Content-Type": "application/json"}
-    resp = requests.post(f"{MATRIXIFY_API}/imports",
-        headers=headers,
-        json={"import": {"remote_url": raw_url}})
-    print(f"  Matrixify response: {resp.status_code}")
-    if resp.status_code not in (200, 201):
-        print(f"  Error: {resp.text[:300]}")
-        return None
-    job = resp.json()
-    job_id = job.get("id")
-    print(f"  ✅ {label} import started — Job ID: {job_id}")
-    return job_id
+    return f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/temp/{filename}"
 
 def main():
     print("🚀 Starting MK Trucks Inventory Sync...")
@@ -252,8 +289,7 @@ def main():
         wp_df = process_wheelpros(wp_atts)
         if not wp_df.empty:
             wp_df.to_csv("/tmp/Products.csv", index=False)
-            raw_url = upload_csv_to_github("/tmp/Products.csv", "wp_products.csv")
-            upload_to_matrixify(raw_url, "WheelPros")
+            upload_to_matrixify_via_s3("/tmp/Products.csv", "Products.csv")
         else:
             print("  ⚠️ WP DataFrame empty")
     else:
@@ -265,8 +301,7 @@ def main():
         rc_df = process_roughcountry(rc_atts)
         if not rc_df.empty:
             rc_df.to_csv("/tmp/Products_RC.csv", index=False)
-            raw_url = upload_csv_to_github("/tmp/Products_RC.csv", "rc_products.csv")
-            upload_to_matrixify(raw_url, "RoughCountry")
+            upload_to_matrixify_via_s3("/tmp/Products_RC.csv", "Products_RC.csv")
         else:
             print("  ⚠️ RC DataFrame empty")
     else:

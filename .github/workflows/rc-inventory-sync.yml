@@ -3,7 +3,7 @@ name: RC Inventory Sync
 on:
   push:
     paths:
-      - 'jobber_pc1.xlsx'
+      - 'jobber*.xlsx'
   workflow_dispatch:
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pip install pandas openpyxl requests
 
-      - name: Generate RC inventory CSV and upload
+      - name: Generate RC inventory CSV
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           MATRIXIFY_API_KEY: ${{ secrets.MATRIXIFY_API_KEY }}

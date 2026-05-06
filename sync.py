@@ -83,23 +83,49 @@ def download_roughcountry():
     print("  Logging in to RoughCountry...")
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
-    login_page = session.get("https://www.roughcountry.com/account/login")
+
+    # Get login page
+    login_page = session.get("https://www.roughcountry.com/account/signin/dealer")
+    print(f"  Login page: {login_page.status_code}")
+
+    # Extract CSRF token
     csrf_token = ""
     match = re.search(r'name=["\']csrf[_-]?token["\'][^>]*value=["\']([^"\']+)["\']', login_page.text, re.I)
     if not match:
         match = re.search(r'value=["\']([^"\']+)["\'][^>]*name=["\']csrf[_-]?token["\']', login_page.text, re.I)
+    if not match:
+        match = re.search(r'"csrfToken"\s*:\s*"([^"]+)"', login_page.text)
     if match:
         csrf_token = match.group(1)
-    resp = session.post("https://www.roughcountry.com/account/login",
-                        data={"email": RC_EMAIL, "password": RC_PASSWORD, "csrf_token": csrf_token},
-                        allow_redirects=True)
-    print(f"  Login: {resp.status_code} {resp.url}")
+        print(f"  CSRF found: {csrf_token[:20]}...")
+
+    # Try form login
+    resp = session.post(
+        "https://www.roughcountry.com/account/signin/dealer",
+        data={"email": RC_EMAIL, "password": RC_PASSWORD, "csrf_token": csrf_token},
+        allow_redirects=True
+    )
+    print(f"  Login POST: {resp.status_code} {resp.url}")
+
+    # If still on login page, try JSON login
+    if "signin" in resp.url or resp.status_code == 422:
+        resp = session.post(
+            "https://www.roughcountry.com/api/account/signin",
+            json={"email": RC_EMAIL, "password": RC_PASSWORD},
+            headers={"Content-Type": "application/json", "X-CSRF-Token": csrf_token}
+        )
+        print(f"  JSON login: {resp.status_code}")
+
+    # Go to downloads page
     downloads_page = session.get("https://www.roughcountry.com/account/downloads")
-    print(f"  Downloads page: {downloads_page.status_code}")
+    print(f"  Downloads page: {downloads_page.status_code} {downloads_page.url}")
+
+    # Find download links
     links = re.findall(r'href=["\']([^"\']*(?:jobber|inventory|download)[^"\']*)["\']', downloads_page.text, re.I)
     if not links:
         links = re.findall(r'href=["\']([^"\']*\.(?:xlsx|csv)[^"\']*)["\']', downloads_page.text, re.I)
     print(f"  Links found: {links[:3]}")
+
     for link in links[:5]:
         url = link if link.startswith("http") else f"https://www.roughcountry.com{link}"
         r = session.get(url)
@@ -107,13 +133,7 @@ def download_roughcountry():
             ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
             print(f"  Downloaded: {len(r.content):,} bytes")
             return [(f"roughcountry{ext}", r.content)]
-    for url in ["https://www.roughcountry.com/account/downloads/jobber",
-                "https://www.roughcountry.com/media/downloads/jobber_pc1.xlsx"]:
-        r = session.get(url)
-        if r.status_code == 200 and len(r.content) > 1000:
-            ext = ".xlsx" if r.content[:4] == b"PK\x03\x04" else ".csv"
-            print(f"  Downloaded from {url}")
-            return [(f"roughcountry{ext}", r.content)]
+
     return []
 
 def index_tech(df, sku_col, img_cols):
@@ -223,32 +243,6 @@ def upload_csv_to_github(csv_path, filename):
     print(f"  Raw URL: {raw_url}")
     return raw_url
 
-def trigger_matrixify_import(raw_url, label):
-    print(f"  Triggering Matrixify import for {label}...")
-    headers = {"Authorization": f"Bearer {MATRIXIFY_API_KEY}",
-               "Content-Type": "application/json"}
-    # Step 1: Create job from URL
-    resp = requests.post(
-        "https://mcp.matrixify.app/mcp/import/create_from_url",
-        headers=headers,
-        json={"remote": {"uri": raw_url}}
-    )
-    print(f"  Create: {resp.status_code}")
-    if resp.status_code not in (200, 201):
-        print(f"  Error: {resp.text[:200]}")
-        return None
-    job_id = resp.json().get("id")
-    # Step 2: Wait for estimation
-    time.sleep(8)
-    # Step 3: Start import
-    start = requests.post(
-        f"https://mcp.matrixify.app/mcp/import/{job_id}/start",
-        headers=headers
-    )
-    print(f"  Start: {start.status_code} — Job ID: {job_id}")
-    print(f"  ✅ {label} import started!")
-    return job_id
-
 def main():
     print("🚀 Starting MK Trucks Inventory Sync...")
     service = get_gmail_service()
@@ -259,8 +253,8 @@ def main():
         wp_df = process_wheelpros(wp_atts)
         if not wp_df.empty:
             wp_df.to_csv("/tmp/Products.csv", index=False)
-            raw_url = upload_csv_to_github("/tmp/Products.csv", "wp_products.csv")
-            trigger_matrixify_import(raw_url, "WheelPros")
+            upload_csv_to_github("/tmp/Products.csv", "wp_products.csv")
+            print("  ✅ WP CSV uploaded — Matrixify will import automatically at 7 AM UTC")
         else:
             print("  ⚠️ WP DataFrame empty")
     else:
@@ -272,8 +266,8 @@ def main():
         rc_df = process_roughcountry(rc_atts)
         if not rc_df.empty:
             rc_df.to_csv("/tmp/Products_RC.csv", index=False)
-            raw_url = upload_csv_to_github("/tmp/Products_RC.csv", "rc_products.csv")
-            trigger_matrixify_import(raw_url, "RoughCountry")
+            upload_csv_to_github("/tmp/Products_RC.csv", "rc_products.csv")
+            print("  ✅ RC CSV uploaded — Matrixify will import automatically at 7 AM UTC")
         else:
             print("  ⚠️ RC DataFrame empty")
     else:

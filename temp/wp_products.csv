@@ -1841,7 +1841,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 1005-28gqc,MERGE,https://images.wheelpros.com/Accessories/1005-28GQC.png,1,FUEL DUALIE CAP - 8X6.5/170 REAR RED
 1005-29,MERGE,https://images.wheelpros.com/Accessories/1005-29.png,1,FUEL DUALIE CAP - 8X200/210 FRONT CHROME
 1005-29bld,MERGE,https://images.wheelpros.com/Accessories/1005-29BLD.png,1,FC DUALLY FT CAP (MB/GB/GB) - 8X200/210
-1005-29gb,MERGE,https://assets.wheelpros.com/transform/c04aaeb8-b105-4146-a9b8-316d611f8838/1005-29GB-png?size=500,1,FC DUALLY FT CAP (GB/CH/GB) - 8X200/210
 1005-29gqc,MERGE,https://images.wheelpros.com/Accessories/1005-29GQC.png,1,FUEL DUALIE CAP - 8X200/210 FRONT RED
 1005-30,MERGE,https://images.wheelpros.com/Accessories/1005-30.png,1,FUEL DUALIE CAP - 8X200/210 REAR CHROME
 1005-30gqc,MERGE,https://images.wheelpros.com/Accessories/1005-30GQC.png,1,FUEL DUALIE CAP - 8X200/210 REAR RED
@@ -4370,6 +4369,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 67-21200,MERGE,https://assets.wheelpros.com/transform/979cb894-17c6-4b38-b2e0-e69ae9bafb08/RL-21-Ford-Bronco-High-Clearance-Beams?size=500,1,RL 21+ FORD BRONCO HIGH CLEARANCE BEAMS
 67-21350,MERGE,https://assets.wheelpros.com/transform/1d435105-ed3d-4ca4-922f-28390b9e9c2b/67-21350-png?size=500,1,RL 3.5'' SST UCA KIT - FORD
 67-21360,MERGE,https://assets.wheelpros.com/transform/af7f9a36-75dd-43d1-8bed-0e244f70a7a7/67-21360-png?size=500,1,RL 21+ FORD BRONCO BILLET UCA LOADED
+67-21361,MERGE,https://assets.wheelpros.com/transform/20be6759-10e0-4852-b935-6392b10844ff/67-21361-png?size=500,1,RL FORD BRONCO REAR TRACK BAR BRACKET
 67-21362,MERGE,https://assets.wheelpros.com/transform/800f9807-9d78-4d73-a8fe-834c53310238/67-21362-png?size=500,1,21+ FORD BRONCO TUBULAR UCA LOADED-KIT
 67-21400,MERGE,https://assets.wheelpros.com/transform/77f91714-910c-4d19-b79e-e8369a95f213/67-21400-1-png?size=500,1,HEADLIGHT BRACKET KIT FOR UCAS (F150)
 67-21440,MERGE,https://images.wheelpros.com/Accessories/67-21440.png,1,21-24 UCA FORD F-150 LEVELING/BIG-KIT

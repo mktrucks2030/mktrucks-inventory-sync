@@ -386,7 +386,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001335000,MERGE,https://images.wheelpros.com/Accessories/000000000001335000.png,1,JK RT COIL OVER SUSPENSION SYSTEM
 000000000001335200,MERGE,https://images.wheelpros.com/Accessories/000000000001335200.png,1,JK RT COIL OVER FRONT KIT
 000000000001335300,MERGE,https://images.wheelpros.com/Accessories/000000000001335300.png,1,JK RT COIL OVER REAR KIT
-000000000001341200,MERGE,https://images.wheelpros.com/Accessories/000000000001341200.png,1,TJ 2” PERFORMANCE SPACER LIFT KIT
 000000000001342100,MERGE,https://images.wheelpros.com/Accessories/000000000001342100.png,1,AR CAP SNAP IN 35BC CHROME
 000000000001344000,MERGE,https://images.wheelpros.com/Accessories/000000000001344000.png,1,BALL JOINT ADJUSTMENT TOOL - THREADED
 000000000001344410,MERGE,https://images.wheelpros.com/Accessories/000000000001344410.png,1,JK HD STEERING BALL JOINT
@@ -594,6 +593,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001844302,MERGE,https://images.wheelpros.com/Accessories/000000000001844302.png,1,TJ 3” LIFT COIL SPRING PAIR - REAR
 000000000001844402,MERGE,https://images.wheelpros.com/Accessories/000000000001844402.png,1,TJ 4” LIFT COIL SPRING PAIR - REAR
 000000000001844502,MERGE,https://images.wheelpros.com/Accessories/000000000001844502.png,1,TJ 5” LIFT COIL SPRING PAIR - REAR
+000000000001849000,MERGE,https://images.wheelpros.com/Accessories/000000000001849000.png,1,TJ PRO LCG DANA 30/44 HIGH STEER SYSTEM
 000000000001853022,MERGE,https://images.wheelpros.com/Accessories/000000000001853022.png,1,JK2 1.5” LIFT COIL SPRING PAIR - FRONT
 000000000001853052,MERGE,https://images.wheelpros.com/Accessories/000000000001853052.png,1,"JK2 2.5""-JK4 1.5” COIL SPRING PAIR-FRONT"
 000000000001853102,MERGE,https://images.wheelpros.com/Accessories/000000000001853102.png,1,"JK2 3""-JK4 2.5” COIL SPRING PAIR - FRONT"
@@ -694,7 +694,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001953250,MERGE,https://images.wheelpros.com/Accessories/000000000001953250.png,1,JL-JT TRACK BAR BRACKET-FRONT (2.5-3.5”)
 000000000001953500,MERGE,https://images.wheelpros.com/Accessories/000000000001953500.png,1,JL-JT TRACK BAR BRACKET - FRONT - 4.5”
 000000000001953600,MERGE,https://images.wheelpros.com/Accessories/000000000001953600.png,1,JL TRACK BAR BRACKET - REAR (2.5-4.5”)
-000000000001953752,MERGE,https://images.wheelpros.com/Accessories/000000000001953752.png,1,JL-JT-JK SPEEDBUMP BUMP STOP KIT - FRONT
 000000000001953800,MERGE,https://images.wheelpros.com/Accessories/000000000001953800.png,1,JK 2.75” BUMP STOP EXT KIT - FRONT UPPER
 000000000001954100,MERGE,https://images.wheelpros.com/Accessories/000000000001954100.png,1,"JK 1"" REAR COIL SPRING SPACER - EACH"
 000000000001954105,MERGE,https://images.wheelpros.com/Accessories/000000000001954105.png,1,"JK 0.5"" REAR COIL SPRING SPACER - EACH"
@@ -868,6 +867,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000004444400,MERGE,https://images.wheelpros.com/Accessories/000000000004444400.png,1,TJ NP231 EXTREME SHORT SHAFT KIT
 000000000004444401,MERGE,https://images.wheelpros.com/Accessories/000000000004444401.png,1,TJ-YJ-XJ NP231 SHORT SHAFT KIT
 000000000004444402,MERGE,https://images.wheelpros.com/Accessories/000000000004444402.png,1,XJ NP231 SHORTSHAFT W/ VACUUM DISCONNECT
+000000000004520011,MERGE,https://images.wheelpros.com/Accessories/000000000004520011.png,1,TJ LOWER ARM BUSHING - LARGE FRAME (LH)
 000000000004520012,MERGE,https://images.wheelpros.com/Accessories/000000000004520012.png,1,LARGE RUBBER CONTROL ARM JOINT RH THREAD
 000000000004607300,MERGE,https://images.wheelpros.com/Accessories/000000000004607300.png,1,2007-11 JK CV DRIVESHAFT-FRONT-3-6” LIFT
 000000000004609100,MERGE,https://images.wheelpros.com/Accessories/000000000004609100.png,1,JL-JT ROCKGUARD TRANSMISSION SKID PLATE
@@ -1130,14 +1130,12 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 01-02-22-110-158,MERGE,https://assets.wheelpros.com/transform/a71b7106-f9df-4c71-94da-d379e8715cea/01-02-22-110-158-jpg?size=500,1,JL-JT-JK NEXUS EF 2.2 STABILIZER -1-5/8”
 01-02-22-110-158-2,MERGE,https://assets.wheelpros.com/transform/887ebf3f-6c97-4e58-aacc-0a33f60ba151/01-02-22-110-158-2-jpg?size=500,1,JK FALCON EF 2.2 STABILIZER - HD - RHD
 02-01-33-400-406,MERGE,https://assets.wheelpros.com/transform/dfd9bf25-b1fe-40c1-a6f8-0bc076aeb297/02-01-33-400-406-jpg?size=500,1,JK2 FALCON 3.3 SHOCK KIT (5-6” LIFT)
-02-02-21-400-253,MERGE,https://assets.wheelpros.com/transform/ed5e0984-e051-4961-b97c-13ccb16a002e/02-02-21-400-253-jpg?size=500,1,"JK2 FALCON 2.1 SP2 SHOCK KIT 3-3.5"""
 02-02-31-400-002,MERGE,https://assets.wheelpros.com/transform/ea4136c3-1531-4783-be9d-e21f3fe29a22/02-02-31-400-002-jpg?size=500,1,"JK2 FALCON 3.1 SP2 SHOCK KIT 1.5-2.5"""
 02-02-31-400-406,MERGE,https://assets.wheelpros.com/transform/2318e5c7-a419-4aa2-8f53-0d87f9bd94dc/02-02-31-400-406-jpg?size=500,1,"JK2 FALCON 3.1 SP2 SHOCK KIT 4-6"""
 02-02-33-400-002,MERGE,https://assets.wheelpros.com/transform/42eafa8e-61f1-4147-9f94-dba8646c2b17/02-02-33-400-002-jpg?size=500,1,"JK2 FALCON 3.3 SP2 SHOCK KIT 1.5-2.5"""
 02-02-33-400-406,MERGE,https://assets.wheelpros.com/transform/9ef44d02-ab18-4d45-8c52-c5def966b1a2/02-02-33-400-406-jpg?size=500,1,"JK2 FALCON 3.3 SP2 SHOCK KIT 5-6"""
 03-01-18-400-200,MERGE,https://assets.wheelpros.com/transform/fc9456cf-13fe-4f9b-873e-34463d46adcd/03-01-18-400-200-jpg?size=500,1,"JK FALCON 1.1 SHOCK KIT 2-3.5"""
 03-01-31-400-406,MERGE,https://assets.wheelpros.com/transform/5066d711-5c40-49db-9c47-d14c9291ab8a/03-01-31-400-406-jpg?size=500,1,JK4 FALCON 3.1 SHOCK KIT (5-6” LIFT)
-03-02-21-400-002,MERGE,https://assets.wheelpros.com/transform/c9091db3-ba4a-4ab5-b172-bc312dd7440e/03-02-21-400-002-jpg?size=500,1,"JK4 FALCON 2.1 SP2 SHOCK KIT 1.5-2.5"""
 03-02-21-400-253,MERGE,https://assets.wheelpros.com/transform/6551066a-2972-45e4-bf20-db308011f9e2/03-02-21-400-253-jpg?size=500,1,"JK4 FALCON 2.1 SP2 SHOCK KIT 3-3.5"""
 03-02-31-400-002,MERGE,https://assets.wheelpros.com/transform/1b9ec935-3414-4051-8a55-f9e9f90d185c/03-02-31-400-002-jpg?size=500,1,"JK4 FALCON 3.1 SP2 SHOCK KIT 1.5-2.5"""
 03-02-31-400-253,MERGE,https://assets.wheelpros.com/transform/085ae14f-50af-4cba-9918-222ded9f6763/03-02-31-400-253-jpg?size=500,1,"JK4 FALCON 3.1 SP2 SHOCK KIT 3-3.5"""
@@ -1269,6 +1267,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 1001-79mbgb,MERGE,https://images.wheelpros.com/Accessories/1001-79MBGB.png,1,FUEL CAP M-BLK SHORT G-BLK LOGO BLK RIV
 1001-79mbmq,MERGE,https://images.wheelpros.com/Accessories/1001-79MBMQ.png,1,FUEL MB COVER CAP M-RED LOGO & CHR-RIV
 1001-79mbr,MERGE,https://images.wheelpros.com/Accessories/1001-79MBR.png,1,FUEL COVER LUG MT-BLK CAP-SHORT-BLK RIV
+1001-81,MERGE,https://images.wheelpros.com/Accessories/1001-81.png,1,FUEL 5/6 LUG CHROME CAP (FLAT BOTTOM)
 1001-81flrt,MERGE,https://images.wheelpros.com/Accessories/1001-81FLRT.png,1,FUEL 5/6 LUG BILLET CAP GLOSS BSH DDT
 1001-81gb,MERGE,https://images.wheelpros.com/Accessories/1001-81GB.png,1,FUEL 5/6 LUG GL-BLK CAP (FLAT BOTTOM)
 1001-81gbk,MERGE,https://images.wheelpros.com/Accessories/1001-81GBK.png,1,FUEL GL-BLK BLUE LOGO CAP (FLAT)
@@ -1895,6 +1894,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 1005-49xtbld,MERGE,https://images.wheelpros.com/Accessories/1005-49XTBLD.png,1,"FC CAP SNAP-IN (SB/CH) X-TALL 3.5"" 8X170"
 1005-49xtddt,MERGE,https://images.wheelpros.com/Accessories/1005-49XTDDT.png,1,"FC CAP SNAP-IN (SB/DT) X-TALL 3.5"" 8X170"
 1005-49xtddtg,MERGE,https://images.wheelpros.com/Accessories/1005-49XTDDTG.png,1,"FC CAP SNAP-IN (SB/GY) X-TALL 3.5"" 8X170"
+1005-49xtgbld,MERGE,https://images.wheelpros.com/Accessories/1005-49XTGBLD.png,1,"FC CAP SNAP-IN (SB/GB) X-TALL 3.5"" 8X170"
 1005-49xtgbq,MERGE,https://images.wheelpros.com/Accessories/1005-49XTGBQ.png,1,"FC CAP SNAP-IN (SB/RD) X-TALL 3.5"" 8X170"
 1005-49xtgd,MERGE,https://images.wheelpros.com/Accessories/1005-49XTGD.png,1,"FC CAP SNAP-IN (SB/GM) X-TALL 3.5"" 8X170"
 1005-49xtnbl,MERGE,https://images.wheelpros.com/Accessories/1005-49XTNBL.png,1,"FC CAP SNAP-IN GB-MILL/CH XT 3.5"" 8X170"
@@ -2179,7 +2179,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 1007-41gbdt,MERGE,https://images.wheelpros.com/Accessories/1007-41GBDT.png,1,FC CAP BOLT-ON (GB/DT/GB) - 6X4.5
 1007-41mbz,MERGE,https://images.wheelpros.com/Accessories/1007-41MBZ.png,1,FC CAP BOLT-ON (MB/BRNZ/MB) - 6X4.5
 1007-44,MERGE,https://images.wheelpros.com/Accessories/1007-44.png,1,FC CAP SNAP-IN (CH/GB) OD 99.5 ID 98
-1007-44bld,MERGE,https://images.wheelpros.com/Accessories/1007-44BLD.png,1,FC CAP SNAP-IN (MB/GB) OD 99.5 ID 98
 1007-44gb,MERGE,https://images.wheelpros.com/Accessories/1007-44GB.png,1,FC CAP SNAP-IN (GB/CH) OD 99.5 ID 98
 1007-44lvc,MERGE,https://images.wheelpros.com/Accessories/1007-44LVC.png,1,FC CAP SNAP-IN (GM/CH) OD 99.5 ID 98
 1007-44mbz,MERGE,https://images.wheelpros.com/Accessories/1007-44MBZ.png,1,FC CAP SNAP-IN (MB/BNZ) OD 99.5 ID 98
@@ -4403,7 +4402,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 67-39610,MERGE,https://assets.wheelpros.com/transform/816186dc-290f-4fbe-ab67-b142f4511d5d/67-39610-png?size=500,1,RL GM 1500 ELEVATION SERVICE PACK
 67-39640,MERGE,https://images.wheelpros.com/Accessories/67-39640.png,1,2019+ UCA - GM 1500 LVL/BIG-KIT
 67-52001,MERGE,https://assets.wheelpros.com/transform/894098a7-f263-493b-8186-eea5980edaa2/67-52001-jpg?size=500,1,2022 TOYOTA TUNDRA DIFF DROP-KIT
-67-52050,MERGE,https://assets.wheelpros.com/transform/d432c743-9eff-42ff-a1ea-0f16c566b8fa/67-52050-1-png?size=500,1,RL TUNDRA TRD PRO SKID PLATE SPACER KIT
 67-52310,MERGE,https://assets.wheelpros.com/transform/53a335f2-d3dd-4406-a127-bd8f1135b0c1/67-52310-png?size=500,1,3'' SST UCA KIT - 22+ TUNDRA
 67-52420cv,MERGE,https://assets.wheelpros.com/transform/f8f84805-eeb3-4b65-a1b7-d227d56fc6c3/67-52420CV-png?size=500,1,2022+ TOYOTA TUNDRA AXLE KIT
 67-52450,MERGE,https://images.wheelpros.com/Accessories/67-52450.png,1,RL 2022+ TUNDRA SKID PLATE KIT
@@ -9443,7 +9441,6 @@ sb471601,MERGE,https://images.wheelpros.com/Accessories/SB471601.png,1,NEOPRENE 
 sb471701,MERGE,https://images.wheelpros.com/Accessories/SB471701.png,1,NEOPRENE SEAT COVER SET
 sb471801,MERGE,https://images.wheelpros.com/Accessories/SB471801.png,1,NEOPRENE SEAT COVER SET
 sb472101,MERGE,https://images.wheelpros.com/Accessories/SB472101.png,1,NEOPRENE SEAT COVER SET
-sb49900,MERGE,https://images.wheelpros.com/Accessories/SB49900.png,1,FRONT SEAT ADAPTER DRVR
 sb5661001,MERGE,https://images.wheelpros.com/Accessories/SB5661001.png,1,GEAR SEAT CVR FRT BLK
 sb5662201,MERGE,https://images.wheelpros.com/Accessories/SB5662201.png,1,GEAR TAIL GATE CVR BLK
 sb5662301,MERGE,https://images.wheelpros.com/Accessories/SB5662301.png,1,GEAR TAIL GATE CVR BLK

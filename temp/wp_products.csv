@@ -485,6 +485,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001416500,MERGE,https://images.wheelpros.com/Accessories/000000000001416500.png,1,JL-JT ALPINE SHORT ARM PAIR -FRONT LOWER
 000000000001416510,MERGE,https://images.wheelpros.com/Accessories/000000000001416510.png,1,JL ALPINE IR SHORT ARM KIT - 8-ARM
 000000000001416520,MERGE,https://images.wheelpros.com/Accessories/000000000001416520.png,1,JL-JT ALPINE SHORT ARM PAIR -FRONT UPPER
+000000000001416530,MERGE,https://images.wheelpros.com/Accessories/000000000001416530.png,1,JL-JT IR SHORT ARM PAIR - FRONT UPPER
 000000000001416540,MERGE,https://images.wheelpros.com/Accessories/000000000001416540.png,1,JL ALPINE SHORT ARM PAIR - REAR LOWER
 000000000001416550,MERGE,https://images.wheelpros.com/Accessories/000000000001416550.png,1,JL-JT IR SHORT ARM PAIR - FRONT LOWER
 000000000001416560,MERGE,https://images.wheelpros.com/Accessories/000000000001416560.png,1,JL ALPINE SHORT ARM PAIR - REAR UPPER
@@ -796,7 +797,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000003990212,MERGE,https://images.wheelpros.com/Accessories/000000000003990212.png,1,TJ DANA 44/60 RR AXLE BRKT ARM PASS UPR
 000000000003990220,MERGE,https://images.wheelpros.com/Accessories/000000000003990220.png,1,TJ D44/60 RR AXLE BRKT TRACK BAR MOUNT
 000000000003990231,MERGE,https://images.wheelpros.com/Accessories/000000000003990231.png,1,TJ D44/60 RR AXLE BRKT SWAY BAR DRVR
-000000000003990232,MERGE,https://images.wheelpros.com/Accessories/000000000003990232.png,1,TJ D44/60 RR AXLE BRKT SWAY BAR PASS
 000000000003990241,MERGE,https://images.wheelpros.com/Accessories/000000000003990241.png,1,TJ D44/60 RR AXLE BRKT SHOCK MOUNT DRVR
 000000000003990242,MERGE,https://images.wheelpros.com/Accessories/000000000003990242.png,1,TJ D44/60 RR AXLE BRKT SHOCK MOUNT PASS
 000000000003990291,MERGE,https://images.wheelpros.com/Accessories/000000000003990291.png,1,TJ DANA 44/60 FR AXLE BRKT SPRING DRVR
@@ -942,7 +942,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000004853155,MERGE,https://images.wheelpros.com/Accessories/000000000004853155.png,1,JK SUSPENSION LIMIT STRAP KIT - FRONT
 000000000004854145,MERGE,https://images.wheelpros.com/Accessories/000000000004854145.png,1,JK SUSPENSION LIMIT STRAP KIT - REAR
 000000000004870402,MERGE,https://images.wheelpros.com/Accessories/000000000004870402.png,1,HAND THROTTLE CABLE KIT
-000000000004884500,MERGE,https://images.wheelpros.com/Accessories/000000000004884500.png,1,JL HARD TOP HANDLE KIT
 000000000004904200,MERGE,https://images.wheelpros.com/Accessories/000000000004904200.png,1,JK SPARE TIRE RELOCATION BRACKET KIT
 000000000004904204,MERGE,https://images.wheelpros.com/Accessories/000000000004904204.png,1,JK SPARE TIRE & BRAKE LIGHT BRACKETS
 000000000004909100,MERGE,https://images.wheelpros.com/Accessories/000000000004909100.png,1,REMOTE RESERVOIR MOUNT BRACKET KIT
@@ -3718,6 +3717,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 44-01-32-320-300,MERGE,https://images.wheelpros.com/Accessories/44-01-32-320-300.png,1,"19+ RAM SMTH BDY 3.2 SNGL FNSH REAR 3"" L"
 44-01-33-311-600,MERGE,https://images.wheelpros.com/Accessories/44-01-33-311-600.png,1,"19+ RAM 2500 SMTH BDY 3.3 FRONT LEFT 6"""
 44-01-33-312-600,MERGE,https://images.wheelpros.com/Accessories/44-01-33-312-600.png,1,"19+ RAM 2500 SMTH BDY 3.3 FRNT RIGHT 6"""
+44-01-33-320-002,MERGE,https://images.wheelpros.com/Accessories/44-01-33-320-002.png,1,"19+ RAM2500 SMTH BDY/3.3 SG FN REAR 0-1"""
 44-01-33-320-600,MERGE,https://images.wheelpros.com/Accessories/44-01-33-320-600.png,1,"'19+ RAM 2500 SMOOTH BODY 3.3 REAR  6"""
 44-1960,MERGE,https://assets.wheelpros.com/transform/1a9b8ad0-384d-44d5-9139-6d5d1c3dabbd/RL-6-LIFT-KIT-DODGE-RAM?size=500,1,RL 6''LIFT KIT DODGE/RAM
 44-19601,MERGE,https://assets.wheelpros.com/transform/affc100c-a4bf-4444-bc4c-43b8fec6fd93/RL-6-LIFT-KIT-DODGE-RAM-W-FALCON?size=500,1,RL 6''LIFT KIT DODGE/RAM W/ FALCON
@@ -4182,6 +4182,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 62671n,MERGE,https://images.wheelpros.com/Accessories/62671N.png,1,GORILLA GUARD 2 SHORT MAG 7/16 CHR CLAM
 6282k81-h30,MERGE,https://images.wheelpros.com/Accessories/6282K81-H30.png,1,AR CAP SNAP-IN (AL/PO) OD 81.3 ID 79.4
 6282k81-h46,MERGE,https://images.wheelpros.com/Accessories/6282K81-H46.png,1,AR CAP SNAP-IN (AL/PO) - OD 81.3 ID 79.4
+63-19340,MERGE,https://assets.wheelpros.com/transform/dd400c79-277d-41e1-b30b-37f00dcf486f/63-19340-png?size=500,1,RL 3'' SST2.1 LIFT - 2019 RAM 2500 SO
 63-23440,MERGE,https://assets.wheelpros.com/transform/c9cc427b-8326-4b44-83fd-152d9a3cb646/63-23440-png?size=500,1,23-24 FORD SD 4'' SST 2.1 PREMIUM
 63-27440,MERGE,https://assets.wheelpros.com/transform/ab761206-21a0-44f3-8d41-00a0786ab22a/63-27440-png?size=500,1,17-22 FORD SD 4'' SST 2.1 PREMIUM
 63-5410,MERGE,https://images.wheelpros.com/Accessories/63-5410.png,1,HUB RING SET 63 OD-54.06 ID (4PK)
@@ -8998,7 +8999,9 @@ n.006,MERGE,https://images.wheelpros.com/Accessories/N.006.png,1,H49003 BI XENON
 n.007,MERGE,https://images.wheelpros.com/Accessories/N.007.png,1,90049007 BI XENON 4300K
 n.008,MERGE,https://images.wheelpros.com/Accessories/N.008.png,1,90049007 BI XENON 5000K
 n.009,MERGE,https://images.wheelpros.com/Accessories/N.009.png,1,90049007 BI XENON 6000K
+n.010,MERGE,https://images.wheelpros.com/Accessories/N.010.png,1,H1 3000K
 n.011,MERGE,https://images.wheelpros.com/Accessories/N.011.png,1,H1 3800K
+n.012,MERGE,https://images.wheelpros.com/Accessories/N.012.png,1,H1 4000K
 n.013,MERGE,https://images.wheelpros.com/Accessories/N.013.png,1,H1 5000K
 n.014,MERGE,https://images.wheelpros.com/Accessories/N.014.png,1,H1 6000K
 n.015,MERGE,https://images.wheelpros.com/Accessories/N.015.png,1,H3C 3000K
@@ -9008,7 +9011,9 @@ n.018,MERGE,https://images.wheelpros.com/Accessories/N.018.png,1,H3C 6000K
 n.019,MERGE,https://images.wheelpros.com/Accessories/N.019.png,1,H7A 3800K
 n.020,MERGE,https://images.wheelpros.com/Accessories/N.020.png,1,H7B 4000K
 n.021,MERGE,https://images.wheelpros.com/Accessories/N.021.png,1,H7A 4000K
+n.022,MERGE,https://images.wheelpros.com/Accessories/N.022.png,1,H7B 5000K
 n.023,MERGE,https://images.wheelpros.com/Accessories/N.023.png,1,H7A 5000K
+n.024,MERGE,https://images.wheelpros.com/Accessories/N.024.png,1,H7B 6000K
 n.025,MERGE,https://images.wheelpros.com/Accessories/N.025.png,1,H7A 6000K
 n.026,MERGE,https://images.wheelpros.com/Accessories/N.026.png,1,H11B H9 H8 3000K
 n.027,MERGE,https://images.wheelpros.com/Accessories/N.027.png,1,H11B H9 H8 3800K
@@ -9349,7 +9354,6 @@ s70000b,MERGE,https://images.wheelpros.com/Accessories/S70000B.png,1,BEARING BOL
 s70000d,MERGE,https://images.wheelpros.com/Accessories/S70000D.png,1,SPINNER CAP BOLT(INTO SPINNER)M4X10 FLAT
 s70000e,MERGE,https://images.wheelpros.com/Accessories/S70000E.png,1,SPINNER CAP BOLT(INTO SPINNER)M4X10 DOME
 s700250,MERGE,https://images.wheelpros.com/Accessories/S700250.png,1,SPINNER WASHER (35MM FOR LARGE BEARING)
-s700260,MERGE,https://images.wheelpros.com/Accessories/S700260.png,1,SPINNER STAR / LOCK WASHER
 s80,MERGE,https://images.wheelpros.com/Accessories/S80.png,1,GATLING GUN 1.0
 sb1061,MERGE,https://images.wheelpros.com/Accessories/SB1061.png,1,CAB CVR W/DOOR FLAP- GRAY
 sb1069,MERGE,https://images.wheelpros.com/Accessories/SB1069.png,1,CAB CVR W/DOOR FLAP GRAY

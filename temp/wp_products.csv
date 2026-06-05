@@ -418,6 +418,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001354250,MERGE,https://images.wheelpros.com/Accessories/000000000001354250.png,1,JL4 2.5” SPRING LIFT & 9550 VSS
 000000000001355000,MERGE,https://images.wheelpros.com/Accessories/000000000001355000.png,1,JL4 3.5” SPRING LIFT - NO SHOCKS
 000000000001355002,MERGE,https://images.wheelpros.com/Accessories/000000000001355002.png,1,JL2 3.5” SPRING LIFT - NO SHOCKS
+000000000001355020,MERGE,https://images.wheelpros.com/Accessories/000000000001355020.png,1,"JL4 3.0L ST3/CT3 3.5"" BASE LIFT KIT"
 000000000001355030,MERGE,https://images.wheelpros.com/Accessories/000000000001355030.png,1,"JL4 3.5"" ST/CT BASE LIFT KIT BOX 392"
 000000000001355040,MERGE,https://images.wheelpros.com/Accessories/000000000001355040.png,1,"JL4 4XE ST3/CT3 3.5"" BASE LIFT KIT"
 000000000001355200,MERGE,https://images.wheelpros.com/Accessories/000000000001355200.png,1,JK 2.5” SPACER LIFT - NO SHOCKS/EXTS
@@ -491,6 +492,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001416530,MERGE,https://images.wheelpros.com/Accessories/000000000001416530.png,1,JL-JT IR SHORT ARM PAIR - FRONT UPPER
 000000000001416540,MERGE,https://images.wheelpros.com/Accessories/000000000001416540.png,1,JL ALPINE SHORT ARM PAIR - REAR LOWER
 000000000001416550,MERGE,https://images.wheelpros.com/Accessories/000000000001416550.png,1,JL-JT IR SHORT ARM PAIR - FRONT LOWER
+000000000001416560,MERGE,https://images.wheelpros.com/Accessories/000000000001416560.png,1,JL ALPINE SHORT ARM PAIR - REAR UPPER
 000000000001416570,MERGE,https://images.wheelpros.com/Accessories/000000000001416570.png,1,JL ALPINE IR SHORT ARM PAIR - REAR UPPER
 000000000001416610,MERGE,https://images.wheelpros.com/Accessories/000000000001416610.png,1,JL ALPINE SHORT ARM KIT - 8-ARM
 000000000001417500,MERGE,https://images.wheelpros.com/Accessories/000000000001417500.png,1,JT ALPINE SHORT ARM KIT - 8-ARM
@@ -521,6 +523,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001543334,MERGE,https://images.wheelpros.com/Accessories/000000000001543334.png,1,"TJ 9550 VSS SHOCK - FRONT (3-4"" LIFT)"
 000000000001543556,MERGE,https://images.wheelpros.com/Accessories/000000000001543556.png,1,"TJ 9550 VSS SHOCK - FRONT (5-6"" LIFT)"
 000000000001544223,MERGE,https://images.wheelpros.com/Accessories/000000000001544223.png,1,"TJ 9550 VSS SHOCK - REAR (2-3"" LIFT)"
+000000000001544334,MERGE,https://images.wheelpros.com/Accessories/000000000001544334.png,1,"TJ 9550 VSS SHOCK - REAR (3-4"" LIFT)"
 000000000001544556,MERGE,https://images.wheelpros.com/Accessories/000000000001544556.png,1,"TJ 9550 VSS SHOCK - REAR (5-6"" LIFT)"
 000000000001544790,MERGE,https://images.wheelpros.com/Accessories/000000000001544790.png,1,TJ REAR LOWER SHOCK EXTENSION KIT
 000000000001545100,MERGE,https://images.wheelpros.com/Accessories/000000000001545100.png,1,"JK 9550 VSS SHOCK KIT (2.5"" LIFT)"
@@ -643,6 +646,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001873000,MERGE,https://images.wheelpros.com/Accessories/000000000001873000.png,1,JT 3.5” LIFT COIL SPRING PAIR - FRONT
 000000000001873010,MERGE,https://images.wheelpros.com/Accessories/000000000001873010.png,1,"JT HD COIL SPRING FR PAIR 3.5"""
 000000000001873100,MERGE,https://images.wheelpros.com/Accessories/000000000001873100.png,1,JT 3.5” LIFT COIL SPRING PAIR - REAR
+000000000001873110,MERGE,https://images.wheelpros.com/Accessories/000000000001873110.png,1,"JT RR COIL SPRING 3.5"""
 000000000001874300,MERGE,https://images.wheelpros.com/Accessories/000000000001874300.png,1,JT 4.5” LIFT COIL SPRING PAIR - FRONT
 000000000001874400,MERGE,https://images.wheelpros.com/Accessories/000000000001874400.png,1,JT 4.5” LIFT COIL SPRING PAIR - REAR
 000000000001874401,MERGE,https://images.wheelpros.com/Accessories/000000000001874401.png,1,"JT 4.5"" REAR SPRING PAIR DIESEL"
@@ -717,6 +721,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001954777,MERGE,https://images.wheelpros.com/Accessories/000000000001954777.png,1,JK TRACK BAR BRACKET - REAR LOWER (3-6”)
 000000000001954802,MERGE,https://images.wheelpros.com/Accessories/000000000001954802.png,1,JK 2” BUMP STOP EXT KIT - REAR UPPER
 000000000001954888,MERGE,https://images.wheelpros.com/Accessories/000000000001954888.png,1,"JK 3""-6"" RR TRACK BAR AXLE BRKT KIT RHD"
+000000000001957000,MERGE,https://images.wheelpros.com/Accessories/000000000001957000.png,1,JK LONG ARM BRACKET KIT
 000000000001958000,MERGE,https://images.wheelpros.com/Accessories/000000000001958000.png,1,JL4 LONG ARM BRACKET KIT
 000000000001958002,MERGE,https://images.wheelpros.com/Accessories/000000000001958002.png,1,JL2 LONG ARM BRACKET KIT
 000000000001958003,MERGE,https://images.wheelpros.com/Accessories/000000000001958003.png,1,4 DOOR JL / JT FR LONG ARM BRKT KIT
@@ -786,6 +791,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000003452010,MERGE,https://images.wheelpros.com/Accessories/000000000003452010.png,1,JL-JT HD BALL JOINT KIT-NO KNURL (ALL 4)
 000000000003452030,MERGE,https://images.wheelpros.com/Accessories/000000000003452030.png,1,TERA60 HD Ball Joint Set
 000000000003470000,MERGE,https://images.wheelpros.com/Accessories/000000000003470000.png,1,JK CRD60 FULL REAR AXLE 4-6” LIFT
+000000000003503000,MERGE,https://images.wheelpros.com/Accessories/000000000003503000.png,1,JK TERA30 HD FRONT AXLE 0-3” LIFT
 000000000003505293,MERGE,https://images.wheelpros.com/Accessories/000000000003505293.png,1,AR CAP AR505 TORQ THRUST POLISHED SHORT
 000000000003505301,MERGE,https://images.wheelpros.com/Accessories/000000000003505301.png,1,TT INSERT- PRESS-IN
 000000000003544053,MERGE,https://images.wheelpros.com/Accessories/000000000003544053.png,1,JK TERA44 RUBICON FRONT AXLE 4-6” LIFT
@@ -881,7 +887,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000004444402,MERGE,https://images.wheelpros.com/Accessories/000000000004444402.png,1,XJ NP231 SHORTSHAFT W/ VACUUM DISCONNECT
 000000000004520011,MERGE,https://images.wheelpros.com/Accessories/000000000004520011.png,1,TJ LOWER ARM BUSHING - LARGE FRAME (LH)
 000000000004607300,MERGE,https://images.wheelpros.com/Accessories/000000000004607300.png,1,2007-11 JK CV DRIVESHAFT-FRONT-3-6” LIFT
-000000000004607301,MERGE,https://images.wheelpros.com/Accessories/000000000004607301.png,1,2007-11 JK4 CV DRIVESHAFT - REAR
 000000000004609100,MERGE,https://images.wheelpros.com/Accessories/000000000004609100.png,1,JL-JT ROCKGUARD TRANSMISSION SKID PLATE
 000000000004609102,MERGE,https://images.wheelpros.com/Accessories/000000000004609102.png,1,JL JT: LONG ARM CROSSMEMBER SKID PLATE
 000000000004627400,MERGE,https://images.wheelpros.com/Accessories/000000000004627400.png,1,TJ HD STEERING BOX SKID PLATE KIT
@@ -1151,8 +1156,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 03-02-33-400-002,MERGE,https://assets.wheelpros.com/transform/442ab2fe-f19e-4844-ba8f-2442b7964b7b/03-02-33-400-002-jpg?size=500,1,"JK4 FALCON 3.3 SP2 SHOCK KIT 1.5-2.5"""
 03-02-33-400-253,MERGE,https://assets.wheelpros.com/transform/4740c378-cddf-466f-90c5-68d09e60e600/03-02-33-400-253-jpg?size=500,1,"JK4 FALCON 3.3 SP2 SHOCK KIT 3-4.5"""
 03-02-33-400-406,MERGE,https://assets.wheelpros.com/transform/04cc95e3-405e-46ea-bfe2-3e7094f1edd1/03-02-33-400-406-jpg?size=500,1,"JK4 FALCON 3.3 SP2 SHOCK KIT 5-6"""
-04-01-30-400-304,MERGE,https://assets.wheelpros.com/transform/6942608f-e47c-44e4-b351-3f0d17f0cda2/04-01-30-400-304-jpg?size=500,1,TJ FALCON 3.0 SHOCK KIT (3-4” LIFT)
-04-02-22-110-001,MERGE,https://assets.wheelpros.com/transform/8272265c-9cf0-49d0-bd62-8b0af9ce80ac/04-02-22-110-001-jpg?size=500,1,TJ FALCON NEXUS EF 2.2 STABILIZER - OEM
 05-01-11-320-350,MERGE,https://images.wheelpros.com/Accessories/05-01-11-320-350.png,1,"F-150 1.1 SHK RR 3.5"" (RLS 93-2300R)"
 05-01-309-050,MERGE,https://assets.wheelpros.com/transform/f2200cc3-8061-4b5d-af94-f81d05d4b133/05-01-309-050-jpg?size=500,1,JT 0.5 COIL SPRING SPACER - REAR
 05-01-309-150,MERGE,https://assets.wheelpros.com/transform/f394d3b5-6e04-48a5-b3be-ced7cc94e93b/05-01-309-150-jpg?size=500,1,"SPRING SPACER RR JT 1.50"""
@@ -1359,6 +1362,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 1002-47h,MERGE,https://images.wheelpros.com/Accessories/1002-47H.png,1,US MAGS-HEX O-RING CAP-POLISHED
 1002-47p,MERGE,https://images.wheelpros.com/Accessories/1002-47P.png,1,US MAGS-HEX O-RING CAP-CHROME
 1002-48,MERGE,https://images.wheelpros.com/Accessories/1002-48.png,1,FUEL 5/6 FLAT BOTTOM CHROME CAP
+1002-48b,MERGE,https://images.wheelpros.com/Accessories/1002-48B.png,1,FUEL 5/6 FLAT BOTTOM MATTE BLACK CAP
 1002-48br,MERGE,https://images.wheelpros.com/Accessories/1002-48BR.png,1,FUEL 5/6 FLATBOTTOM MT-BLK CAP BLK RIVET
 1002-48flrt,MERGE,https://images.wheelpros.com/Accessories/1002-48FLRT.png,1,FUEL 5/6 LUG BILLET CAP GL- BSH DDT
 1002-48gb,MERGE,https://images.wheelpros.com/Accessories/1002-48GB.png,1,FUEL 5/6 FLAT BOTTOM GLOSS BLACK CAP
@@ -2385,7 +2389,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 106-1003,MERGE,https://images.wheelpros.com/Accessories/106-1003.png,1,HUB RING SET 106 OD-100.30 ID (4PK)
 106-6410,MERGE,https://images.wheelpros.com/Accessories/106-6410.png,1,HUB RING SET 106 OD-64.10 ID (4PK)
 106-6706,MERGE,https://images.wheelpros.com/Accessories/106-6706.png,1,HUB RING SET 106 OD-67.06 ID (4PK)
-106-7780,MERGE,https://images.wheelpros.com/Accessories/106-7780.png,1,HUB RING SET 106 OD-77.80 ID (4PK)
 106-7810,MERGE,https://images.wheelpros.com/Accessories/106-7810.png,1,HUB RING SET 106 OD-78.10 ID (4PK)
 106-8410,MERGE,https://images.wheelpros.com/Accessories/106-8410.png,1,HUB RING SET 106 OD-84.10 ID (4PK)
 106-8710,MERGE,https://images.wheelpros.com/Accessories/106-8710.png,1,HUB RING SET 106 OD-87.10 ID (4PK)
@@ -3209,6 +3212,8 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 21838ht,MERGE,https://images.wheelpros.com/Accessories/21838HT.png,1,SHORT SPIKE 12-1.50 CHR BULK
 21cap-ibk,MERGE,https://assets.wheelpros.com/transform/7a2714a1-f895-484c-a6e0-c3f67d537410/21CAP-IBK-O-png?size=500,1,21MM HEX CAP SET BLK CLAM
 21cap-ird,MERGE,https://assets.wheelpros.com/transform/ec7a4ba7-9737-4370-90a9-6a1dd1669cfa/21CAP-IRD-O-png?size=500,1,21MM HEX CAP SET RED CLAM
+22-07-33-311-001,MERGE,https://images.wheelpros.com/Accessories/22-07-33-311-001.png,1,"19+ SPRINTER 4X4 3.3 STRUT FRONT LEFT 0"""
+22-07-33-312-001,MERGE,https://images.wheelpros.com/Accessories/22-07-33-312-001.png,1,19+ SPRINTER 4X4 3.3 STRUT FRONT RIGHT 0
 22148n,MERGE,https://images.wheelpros.com/Accessories/22148N.png,1,"DUALLIE FLANGE LUG 1"" 14-1.50 CHR BULK"
 2224tws,MERGE,https://assets.wheelpros.com/transform/5404ee97-b15a-4c8d-b26c-cc1db6c723e3/2224TWS-O-png?size=500,1,"FLIP SOCKET 7/8 & 15/16"""
 22298n,MERGE,https://assets.wheelpros.com/transform/a257100d-177a-4d96-8e62-f9d948a29970/22298N-I-png?size=500,1,"DUALLIE FLANGE LUG 1 1/16"" 9/16 CHR BULK"
@@ -3855,7 +3860,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 46-20252,MERGE,https://assets.wheelpros.com/transform/975cc2ce-91d8-4eb1-a606-c70e9afa30d6/RL-2-5-FRONT-LEVELING-SPRING-KIT-FORD?size=500,1,"2.5"" FRONT LEVELING SPRING KIT-FORD"
 46-20253,MERGE,https://assets.wheelpros.com/transform/13dff829-a118-48df-9131-57362470dfe1/RL-2-5-FRONT-LEVELING-SPRING-FALC-FORD?size=500,1,"RL 2.5"" FRONT LEVELING SPRING FALC -FORD"
 46-20254,MERGE,https://assets.wheelpros.com/transform/37acab80-412a-4df8-898e-0dbb79f6ab87/46-20254-1-png?size=500,1,"RL 2.5"" LEVELING SPRING FALC 2.1 FORD SD"
-46-20255,MERGE,https://assets.wheelpros.com/transform/5d66d643-e8bd-4790-b044-d7e78e61dcd0/46-20255_social_posts_2-jpg?size=500,1,"RL 2.5"" LEVELING SPRING FALC 3.3 FORD SD"
 46-2723,MERGE,https://assets.wheelpros.com/transform/45e3c817-4902-4c3a-a4f4-2844ae1eedbb/RL-2-5-LEVELING-KIT-SHOCKS-FORD?size=500,1,"RL 2.5"" LEVELING KIT & SHOCKS - FORD"
 46-2724,MERGE,https://assets.wheelpros.com/transform/eee9b619-420c-4087-af26-20427fc03781/RL-2-5-SPRNG-LVL-W-TRK-BAR-BRKT-BLSTEIN?size=500,1,"RL 2.5"" SPRNG LVL W/TRK BAR BRKT&BLSTEIN"
 46-27240,MERGE,https://assets.wheelpros.com/transform/f154a0e7-fa26-4aa8-8bf6-3ce79001c744/RL-2-5-SPRNG-LVL-W-TRK-BAR-BRKT-FALCON?size=500,1,"RL 2.5"" SPRNG LVL W/TRK BAR BRKT&FALCON"
@@ -4232,6 +4236,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 66-11150,MERGE,https://assets.wheelpros.com/transform/f9e8e812-0377-464b-aa91-9e48ff1816a4/66-11150-png?size=500,1,LEVELING KIT - 21-22 RAM TRX
 66-1201,MERGE,https://assets.wheelpros.com/transform/3e256c91-9714-435e-b254-ee2b2b9cebd9/RL-1-REAR-BLOCK-KIT-DODGE-RAM?size=500,1,RL 1'' REAR BLOCK KIT - DODGE/RAM
 66-1202,MERGE,https://assets.wheelpros.com/transform/d1a30086-34d8-4aae-8829-91f93627bab7/RL-2-REAR-BLOCK-KIT-DODGE-RAM?size=500,1,RL 2'' REAR BLOCK KIT - DODGE/RAM
+66-1211,MERGE,https://assets.wheelpros.com/transform/1568d927-a4b4-4d29-8277-60feddd785af/RL-1-0-COIL-SPACER?size=500,1,RL 1.0'' COIL SPACER
 66-1302,MERGE,https://assets.wheelpros.com/transform/3c186b9a-9e5c-4e10-851d-2fdc2f902a54/RL-2-0-AIR-BAG-SPACER?size=500,1,RL 2.0'' AIR BAG SPACER
 66-1910,MERGE,https://assets.wheelpros.com/transform/3de198e3-03e1-4cf7-9eb9-dd8b496651cf/RL-1-REAR-COIL-SPRING-SPACER-KIT-RAM?size=500,1,RL 1'' REAR COIL SPRING SPACER KIT RAM
 66-19150,MERGE,https://assets.wheelpros.com/transform/8f0e9b5a-a7a3-470d-b3e3-0e9b21a6d1bd/RL-1-5-Leveling-Kit-Ram-19-21-AirRid?size=500,1,1.5 LEVELING KIT RAM 19-21 AIRRID
@@ -4268,6 +4273,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 66-24200,MERGE,https://assets.wheelpros.com/transform/8f773577-38c1-4c2d-ae18-ada9cf92d89a/66-24200-jpg?size=500,1,"2024-UP FORD RANGER 1.5"" LEVELING KIT"
 66-2515,MERGE,https://assets.wheelpros.com/transform/8924d354-3162-4398-8902-9a4d75e59ca3/RL-2-5-LEVELING-KIT-FORD?size=500,1,2.5'' LEVELING KIT - FORD SD
 66-2516,MERGE,https://assets.wheelpros.com/transform/4f137c58-9072-4239-adf5-778339f046b0/RL-2-5-LEVELING-KIT-FORD?size=500,1,2.5'' LEVELING KIT - FORD SD
+66-25250,MERGE,https://images.wheelpros.com/Accessories/66-25250.png,1,"2.5"" FRONT LEVEL FORD F-150 TREMOR-KIT"
 66-2555,MERGE,https://assets.wheelpros.com/transform/df28cd5a-7641-45c2-a520-8bbf800a465c/66-2555-png?size=500,1,5.5'' REAR BLOCK KIT - FORD
 66-2715,MERGE,https://assets.wheelpros.com/transform/7bc7d8a0-f36e-4a1e-b4f2-64264eeedbfd/RL-1-5-LEVELING-KIT-FORD?size=500,1,1.5'' LEVELING KIT - FORD RAPTOR
 66-27150,MERGE,https://assets.wheelpros.com/transform/b1cca67a-2009-4488-ac73-3a969f6d7829/66-27150-png?size=500,1,LEVELING KIT - 22+ FORD RAPTOR
@@ -4417,7 +4423,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 67-3941,MERGE,https://images.wheelpros.com/Accessories/67-3941.png,1,RL UPPER BALL JOINT FOR 4'' KIT
 67-39640,MERGE,https://images.wheelpros.com/Accessories/67-39640.png,1,2019+ UCA - GM 1500 LVL/BIG-KIT
 67-52001,MERGE,https://assets.wheelpros.com/transform/894098a7-f263-493b-8186-eea5980edaa2/67-52001-jpg?size=500,1,2022 TOYOTA TUNDRA DIFF DROP-KIT
-67-52050,MERGE,https://assets.wheelpros.com/transform/d432c743-9eff-42ff-a1ea-0f16c566b8fa/67-52050-1-png?size=500,1,RL TUNDRA TRD PRO SKID PLATE SPACER KIT
 67-52310,MERGE,https://assets.wheelpros.com/transform/53a335f2-d3dd-4406-a127-bd8f1135b0c1/67-52310-png?size=500,1,3'' SST UCA KIT - 22+ TUNDRA
 67-52420cv,MERGE,https://assets.wheelpros.com/transform/f8f84805-eeb3-4b65-a1b7-d227d56fc6c3/67-52420CV-png?size=500,1,2022+ TOYOTA TUNDRA AXLE KIT
 67-52450,MERGE,https://images.wheelpros.com/Accessories/67-52450.png,1,RL 2022+ TUNDRA SKID PLATE KIT
@@ -5793,6 +5798,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 811fin67000-or,MERGE,https://images.wheelpros.com/Accessories/811FIN67000-OR.png,1,XS811 FINS 16X7 +00MM ORANGE (5PK)
 811fin67000-rd,MERGE,https://images.wheelpros.com/Accessories/811FIN67000-RD.png,1,XS811 FINS 16X7 +00MM RED (5PK)
 811fin67000-wt,MERGE,https://images.wheelpros.com/Accessories/811FIN67000-WT.png,1,XS811 FINS 16X7 +00MM WHITE (5PK)
+811fin78010-rd,MERGE,https://images.wheelpros.com/Accessories/811FIN78010-RD.png,1,XD811 FINS 17X8 +10MM RED (5PK)
 811fin78010abs,MERGE,https://images.wheelpros.com/Accessories/811FIN78010ABS.png,1,XD811 FINS 17X8 +10MM BLACK (5PK)
 811fin78010chr,MERGE,https://images.wheelpros.com/Accessories/811FIN78010CHR.png,1,XD811 FINS 17X8 +10MM CHROME (5PK)
 811fin78020abs,MERGE,https://images.wheelpros.com/Accessories/811FIN78020ABS.png,1,XD811 FINS 17X8 +20MM BLACK (5PK)
@@ -6182,7 +6188,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 91137ss,MERGE,https://images.wheelpros.com/Accessories/91137SS.png,1,"BULGE SS LUG 13/16"" 12-1.50 CLAM"
 91138bc,MERGE,https://images.wheelpros.com/Accessories/91138BC.png,1,"BULGE LUG 13/16"" 12-1.50 BLK BULK"
 91138ht,MERGE,https://images.wheelpros.com/Accessories/91138HT.png,1,"BULGE HT LUG 13/16"" 12-1.50 CHR BULK"
-91138ss,MERGE,https://images.wheelpros.com/Accessories/91138SS.png,1,"BULGE SS LUG 13/16"" 12-1.50 BULK"
 91147b,MERGE,https://images.wheelpros.com/Accessories/91147B.png,1,"BULGE LUG 13/16"" 14-1.50 CHR BAG"
 91147bc,MERGE,https://images.wheelpros.com/Accessories/91147BC.png,1,"BULGE LUG 13/16"" 14-1.50 BLK CLAM"
 91147bcb,MERGE,https://images.wheelpros.com/Accessories/91147BCB.png,1,"BULGE LUG 13/16"" 14-1.50 BLK BAG"
@@ -6480,6 +6485,7 @@ afx80a5fl,MERGE,https://images.wheelpros.com/Accessories/AFX80A5FL.png,1,AFW ALU
 afx80afl,MERGE,https://images.wheelpros.com/Accessories/AFX80AFL.png,1,AFW ALUM. 8-LUG FLOATER LOGO POL
 afz122r,MERGE,https://images.wheelpros.com/Accessories/AFZ122R.png,1,ADAPTOR DODGE 94-128X165 122MM-REAR PAIR
 afz141f,MERGE,https://images.wheelpros.com/Accessories/AFZ141F.png,1,ADPTR 8X200 141 FRNT STANDRD PAIR
+afz141r-ed,MERGE,https://images.wheelpros.com/Accessories/AFZ141R-ED.png,1,ADPTR 8X200 141 REAR STANDRD PAIR ED
 afz141rl-ed,MERGE,https://images.wheelpros.com/Accessories/AFZ141RL-ED.png,1,ADPTR 8X200 141 REAR LONG STUD PAIR ED
 afzs117r-ed,MERGE,https://images.wheelpros.com/Accessories/AFZS117R-ED.png,1,ADAPTOR GM 01-10 8X6.5 117 REAR ED PAIR
 afzs125r,MERGE,https://images.wheelpros.com/Accessories/AFZS125R.png,1,ADPTR FORD 99-12 8X170 125-REAR PAIR SS
@@ -7499,7 +7505,6 @@ gor94-6585-125,MERGE,https://images.wheelpros.com/Accessories/GOR94-6585-125.png
 gordisplay-1,MERGE,https://images.wheelpros.com/Accessories/GORDISPLAY-1.png,1,GORILLA SHOW DISPLAY
 gorpop-1,MERGE,https://images.wheelpros.com/Accessories/GORPOP-1.png,1,GORILLA COUNTER POP DISPLAY
 gr999012b-2,MERGE,https://images.wheelpros.com/Accessories/GR999012B-2.png,1,"GOR DISPLAY RACK 2 TIER BLACK RACK 20"""
-gr999012bh,MERGE,https://images.wheelpros.com/Accessories/GR999012BH.png,1,"GOR DISP HALF RACK 3 TIER BLACK 20"""
 gr999812b,MERGE,https://images.wheelpros.com/Accessories/GR999812B.png,1,"GOR DISPLAY RACK 2 TIER BLACK RACK 24"""
 gr999812bh,MERGE,https://images.wheelpros.com/Accessories/GR999812BH.png,1,"GOR DISP HALF RACK 2 TIER BLACK 24"""
 gsw-hook,MERGE,https://images.wheelpros.com/Accessories/GSW-HOOK.png,1,SLAT WALL WHEEL HOOK BLACK (EA)
@@ -9638,7 +9643,6 @@ sb77783,MERGE,https://images.wheelpros.com/Accessories/SB77783.png,1,APOLLO JL/J
 sb77784,MERGE,https://images.wheelpros.com/Accessories/SB77784.png,1,APOLLO JL REAR BUMPER
 sb77806,MERGE,https://images.wheelpros.com/Accessories/SB77806.png,1,GEN 1 XRC FRONT BUMPER
 sb77807,MERGE,https://images.wheelpros.com/Accessories/SB77807.png,1,GEN 2 XRC FRONT
-sb77808,MERGE,https://images.wheelpros.com/Accessories/SB77808.png,1,XRC GEN3 FRONT BUMPER
 sb77835,MERGE,https://images.wheelpros.com/Accessories/SB77835.png,1,APOLLO JL/JT FRONT FENDER
 sb77836,MERGE,https://images.wheelpros.com/Accessories/SB77836.png,1,APOLLO JL REAR FENDER
 sb77837,MERGE,https://images.wheelpros.com/Accessories/SB77837.png,1,JL XRC FLAT FLARES
@@ -9726,7 +9730,6 @@ sb98515drwd,MERGE,https://images.wheelpros.com/Accessories/SB98515DRWD.png,1,DRI
 sb98552-drwd,MERGE,https://images.wheelpros.com/Accessories/SB98552-DRWD.png,1,98552 SIDE WINDOW
 sb98552-prwd,MERGE,https://images.wheelpros.com/Accessories/SB98552-PRWD.png,1,98552 SIDE WINDOW
 sb98552-rrwd,MERGE,https://images.wheelpros.com/Accessories/SB98552-RRWD.png,1,98552 REAR WINDOW
-sb98612,MERGE,https://images.wheelpros.com/Accessories/SB98612.png,1,XRC GEN 3 12000 SYNTHETIC
 sb98695,MERGE,https://images.wheelpros.com/Accessories/SB98695.png,1,XRC GEN 3 9500 SYNTHETIC
 sb9870211-drwd,MERGE,https://images.wheelpros.com/Accessories/SB9870211-DRWD.png,1,DRIVER SIDE REAR WINDOW
 sb9870211-prwd,MERGE,https://images.wheelpros.com/Accessories/SB9870211-PRWD.png,1,PASS SIDE REAR WINDOW

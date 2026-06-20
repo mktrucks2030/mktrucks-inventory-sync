@@ -3665,6 +3665,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 41188xlht,MERGE,https://images.wheelpros.com/Accessories/41188XLHT.png,1,"BULGE XL HT LUG 3/4"" 1/2 CHR BULK"
 41197xl,MERGE,https://images.wheelpros.com/Accessories/41197XL.png,1,"BULGE XL LUG 3/4"" 9/16 CHR CLAM"
 41197xlb,MERGE,https://images.wheelpros.com/Accessories/41197XLB.png,1,"BULGE XL LUG 3/4"" 9/16 CHR BAG"
+41197xlbcb,MERGE,https://images.wheelpros.com/Accessories/41197XLBCB.png,1,"BULGE XL LUG 3/4"" 9/16 BLK BAG"
 41198xlbc,MERGE,https://images.wheelpros.com/Accessories/41198XLBC.png,1,"BULGE XL LUG 3/4"" 9/16 BLK BULK"
 41198xlht,MERGE,https://assets.wheelpros.com/transform/5296bb47-e74d-43eb-a464-e823e2d3229c/41198XLHT-jpg?size=500,1,"BULGE XL HT LUG 3/4"" 9/16 CHR BULK"
 4137-15,MERGE,https://images.wheelpros.com/Accessories/4137-15.png,1,"WHEEL SPACER 1.50"" - 4X137 110 (PAIR)"
@@ -5164,6 +5165,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 72-6690,MERGE,https://images.wheelpros.com/Accessories/72-6690.png,1,HUB RING SET 72 OD-66.90 ID (4PK)
 72-6706,MERGE,https://images.wheelpros.com/Accessories/72-6706.png,1,HUB RING SET 72 OD-67.06 ID (4PK)
 72-7010,MERGE,https://images.wheelpros.com/Accessories/72-7010.png,1,HUB RING SET 72 OD-70.10 ID (4PK)
+72-7150,MERGE,https://images.wheelpros.com/Accessories/72-7150.png,1,HUB RING SET 72 OD-71.50 ID (4PK)
 72128ns,MERGE,https://images.wheelpros.com/Accessories/72128NS.png,1,NIS LUG STEEL WHL W/ CVR 12-1.25 SS BULK
 72137b,MERGE,https://images.wheelpros.com/Accessories/72137B.png,1,"SHORT SHANK LUG 13/16"" 12-1.50 CHR BAG"
 72673n,MERGE,https://images.wheelpros.com/Accessories/72673N.png,1,SYSTEM LOCK 5LUG 7/16 SHORT SHANK CHR
@@ -10936,6 +10938,7 @@ xsbrs15a-orange,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-ORANGE.p
 xsbrs15a-red,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-RED.png,1,"XS STANDARD RING 15"" 16 BOLT - RED"
 xsbrs15a-slphyl,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-SLPHYL.png,1,"XS STANDARD RING 15"" 16 BOLT - SLPH YLLW"
 xsbrs15a-white,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-WHITE.png,1,"XS STANDARD RING 15"" 16 BOLT - WHITE"
+xscap110115,MERGE,https://images.wheelpros.com/Accessories/XSCAP110115.png,1,XS CAP 110/115 - SATIN BLACK
 xscap137,MERGE,https://images.wheelpros.com/Accessories/XSCAP137.png,1,XS CAP 137 - SATIN BLACK
 xsrivet1-12mm,MERGE,https://images.wheelpros.com/Accessories/XSRIVET1-12MM.png,1,XS HEX RING BOLT M6X6 12MM WASHER - MACH
 xt10,MERGE,https://images.wheelpros.com/Accessories/XT10.png,1,HD RELAY LIGHT BAR

@@ -8564,6 +8564,7 @@ m16-bolt-washer,MERGE,https://images.wheelpros.com/Accessories/M16-BOLT-WASHER.p
 m21-14-ring,MERGE,https://images.wheelpros.com/Accessories/M21-14-RING.png,1,M21 LOK -14'' RING - BLACK
 m21-16-ring,MERGE,https://images.wheelpros.com/Accessories/M21-16-RING.png,1,M21 LOK - 16'' RING - BLACK
 m21-16-ring-orange,MERGE,https://images.wheelpros.com/Accessories/M21-16-RING-ORANGE.png,1,M21 LOK REPLACEMENT 16'' RING - ORANGE
+m21-16-ring-red,MERGE,https://images.wheelpros.com/Accessories/M21-16-RING-RED.png,1,M21 LOK REPLACEMENT 16'' RING - RED
 m21-msa-rivet,MERGE,https://images.wheelpros.com/Accessories/M21-MSA-RIVET.png,1,MSA RIVET REP FOR M21 LOK WHEELS 1PIECE
 m23-msa-rivet,MERGE,https://images.wheelpros.com/Accessories/M23-MSA-RIVET.png,1,MSA RIVET REP FOR M23 BATTLE WHEELS 1PC
 m30-16-ring-chrome,MERGE,https://images.wheelpros.com/Accessories/M30-16-RING-CHROME.png,1,M30 THROTTLE REP 16'' RING - CHROME
@@ -8954,11 +8955,17 @@ msabrs14b-gray,MERGE,https://images.wheelpros.com/Accessories/MSABRS14B-GRAY.png
 msabrs14b-raw,MERGE,https://images.wheelpros.com/Accessories/MSABRS14B-RAW.png,1,"MSA STANDARD RING 14"" 20 BOLT - RAW"
 msabrs15b-gray,MERGE,https://images.wheelpros.com/Accessories/MSABRS15B-GRAY.png,1,"MSA STANDARD RING 15"" 20 BOLT - GRAY"
 msabrs15b-slphyl,MERGE,https://images.wheelpros.com/Accessories/MSABRS15B-SLPHYL.png,1,"MSA STANDARD RING 15"" 20BOLT - SLPH YLLW"
+msabrs15b-white,MERGE,https://images.wheelpros.com/Accessories/MSABRS15B-WHITE.png,1,"MSA STANDARD RING 15"" 20 BOLT - WHITE"
 msabrs15c-gb,MERGE,https://images.wheelpros.com/Accessories/MSABRS15C-GB.png,1,"MSA BL RING 15"" - G-BLK"
 msabrs15c-gy,MERGE,https://images.wheelpros.com/Accessories/MSABRS15C-GY.png,1,"MSA BL RING 15"" - GRAY"
 msabrs16b-blue,MERGE,https://images.wheelpros.com/Accessories/MSABRS16B-BLUE.png,1,"MSA STANDARD RING 16"" 20 BOLT - BLUE"
 msabrs16b-gray,MERGE,https://images.wheelpros.com/Accessories/MSABRS16B-GRAY.png,1,"MSA STANDARD RING 16"" 20 BOLT - GRAY"
+msabrs16b-orange,MERGE,https://images.wheelpros.com/Accessories/MSABRS16B-ORANGE.png,1,"MSA STANDARD RING 16"" 20 BOLT - ORANGE"
+msabrs16b-slphyl,MERGE,https://images.wheelpros.com/Accessories/MSABRS16B-SLPHYL.png,1,"MSA STANDARD RING 16"" 20BOLT - SLPH YLLW"
+msabrs16b-white,MERGE,https://images.wheelpros.com/Accessories/MSABRS16B-WHITE.png,1,"MSA STANDARD RING 16"" 20 BOLT - WHITE"
 msabrs18b-gray,MERGE,https://images.wheelpros.com/Accessories/MSABRS18B-GRAY.png,1,"MSA STANDARD RING 18"" 20 BOLT - GRAY"
+msabrs18b-red,MERGE,https://images.wheelpros.com/Accessories/MSABRS18B-RED.png,1,"MSA STANDARD RING 18"" 20 BOLT - RED"
+msabrs18b-white,MERGE,https://images.wheelpros.com/Accessories/MSABRS18B-WHITE.png,1,"MSA STANDARD RING 18"" 20 BOLT - WHITE"
 msacap2-sb-c,MERGE,https://images.wheelpros.com/Accessories/MSACAP2-SB-C.png,1,MSA 2 CAP SATIN BLACK W/ CHROME STAR
 msacap2-sb-sg,MERGE,https://images.wheelpros.com/Accessories/MSACAP2-SB-SG.png,1,MSA 2 CAP SATIN BLACK W/ SATIN GRAY STAR
 msacap3-c-gb,MERGE,https://images.wheelpros.com/Accessories/MSACAP3-C-GB.png,1,MSA 3 CAP - CHROME W/ GLOSS BLACK STAR
@@ -10706,10 +10713,17 @@ xs1cap44-sb10,MERGE,https://images.wheelpros.com/Accessories/XS1CAP44-SB10.png,1
 xs1cap48-sb,MERGE,https://images.wheelpros.com/Accessories/XS1CAP48-SB.png,1,XS134/135 CAP 4X137 - SATIN BLACK
 xs2cap141548-sb,MERGE,https://images.wheelpros.com/Accessories/XS2CAP141548-SB.png,1,XS237/235 CAP 4X137 - SATIN BLACK
 xs2cap1540-sb38,MERGE,https://images.wheelpros.com/Accessories/XS2CAP1540-SB38.png,1,XS234/235 CAP 4X110 15X6 ET38 - S-BLACK
+xsbrs14a-blue,MERGE,https://images.wheelpros.com/Accessories/XSBRS14A-BLUE.png,1,"XS STANDARD RING 14"" 16 BOLT - BLUE"
+xsbrs14a-red,MERGE,https://images.wheelpros.com/Accessories/XSBRS14A-RED.png,1,"XS STANDARD RING 14"" 16 BOLT - RED"
+xsbrs14a-white,MERGE,https://images.wheelpros.com/Accessories/XSBRS14A-WHITE.png,1,"XS STANDARD RING 14"" 16 BOLT - WHITE"
 xsbrs14c-gb,MERGE,https://images.wheelpros.com/Accessories/XSBRS14C-GB.png,1,"XS BEAD RING 14"" - GLOSS BLACK"
 xsbrs14c-mach,MERGE,https://images.wheelpros.com/Accessories/XSBRS14C-MACH.png,1,"XS BEAD RING 14"" - MACHINED"
+xsbrs14c-sb,MERGE,https://images.wheelpros.com/Accessories/XSBRS14C-SB.png,1,"XS BEAD RING 14"" - SATIN BLACK"
 xsbrs15a-black,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-BLACK.png,1,"XS STANDARD RING 15"" 16 BOLT - BLACK"
 xsbrs15a-blue,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-BLUE.png,1,"XS STANDARD RING 15"" 16 BOLT - BLUE"
+xsbrs15a-orange,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-ORANGE.png,1,"XS STANDARD RING 15"" 16 BOLT - ORANGE"
+xsbrs15a-red,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-RED.png,1,"XS STANDARD RING 15"" 16 BOLT - RED"
+xsbrs15a-white,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-WHITE.png,1,"XS STANDARD RING 15"" 16 BOLT - WHITE"
 xscap110115,MERGE,https://images.wheelpros.com/Accessories/XSCAP110115.png,1,XS CAP 110/115 - SATIN BLACK
 xscap137,MERGE,https://images.wheelpros.com/Accessories/XSCAP137.png,1,XS CAP 137 - SATIN BLACK
 xt10,MERGE,https://images.wheelpros.com/Accessories/XT10.png,1,HD RELAY LIGHT BAR

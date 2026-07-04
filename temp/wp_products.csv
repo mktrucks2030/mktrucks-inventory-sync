@@ -621,7 +621,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000001864402,MERGE,https://images.wheelpros.com/Accessories/000000000001864402.png,1,JL2 4.5” LIFT COIL SPRING PAIR - FRONT
 000000000001872100,MERGE,https://images.wheelpros.com/Accessories/000000000001872100.png,1,JT 2.5” LIFT COIL SPRING PAIR - FRONT
 000000000001873000,MERGE,https://images.wheelpros.com/Accessories/000000000001873000.png,1,JT 3.5” LIFT COIL SPRING PAIR - FRONT
-000000000001873010,MERGE,https://images.wheelpros.com/Accessories/000000000001873010.png,1,"JT HD COIL SPRING FR PAIR 3.5"""
 000000000001873100,MERGE,https://images.wheelpros.com/Accessories/000000000001873100.png,1,JT 3.5” LIFT COIL SPRING PAIR - REAR
 000000000001873110,MERGE,https://images.wheelpros.com/Accessories/000000000001873110.png,1,"JT RR COIL SPRING 3.5"""
 000000000001874300,MERGE,https://images.wheelpros.com/Accessories/000000000001874300.png,1,JT 4.5” LIFT COIL SPRING PAIR - FRONT
@@ -6080,7 +6079,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 88-23xxx-drw,MERGE,https://images.wheelpros.com/Accessories/88-23XXX-DRW.png,1,FORD DRW ADDITIONAL SPACER KIT
 88-31070,MERGE,https://images.wheelpros.com/Accessories/88-31070.png,1,GM 1500 07-18 LOAD LEV
 88-31190,MERGE,https://images.wheelpros.com/Accessories/88-31190.png,1,GM 1500 2019-UP LOAD LEV
-88-31190-1,MERGE,https://images.wheelpros.com/Accessories/88-31190-1.png,1,2019+ GM 1500 SENSOR BRACKET
 88-31190-3,MERGE,https://images.wheelpros.com/Accessories/88-31190-3.png,1,"GM 1500 1-3"" LIFT BUMPSTOP SPACERS"
 88-32110,MERGE,https://assets.wheelpros.com/transform/4a8e7e1a-5c3d-40b1-8f95-f42c4149e73e/88-32110-READYAIR-2011-2019-GM-2500-WITHOUT-OVERLOAD-SPRINGS-LOAD-LEVELING-HELPER-SPRING-KIT?size=500,1,GM 2500 11-19 LOAD LEV (NO/OL)
 88-32110-3,MERGE,https://images.wheelpros.com/Accessories/88-32110-3.png,1,"GM 2500/3500 1-3"" LIFT BUMPSTOP SPACERS"
@@ -8461,6 +8459,7 @@ lf7933-1,MERGE,https://images.wheelpros.com/Accessories/LF7933-1.png,1,XB SIDE M
 lf7934,MERGE,https://images.wheelpros.com/Accessories/LF7934.png,1,XB SIDE MARKERS  MUSTANG 15-20    REAR
 lf7938-1,MERGE,https://images.wheelpros.com/Accessories/LF7938-1.png,1,XB SIDE MARKERS  RAPTOR 09-14  SET
 lf7939-1,MERGE,https://assets.wheelpros.com/transform/2be371ad-26a0-47d4-9e93-2ad76b8cc720/LF7939-1-jpg?size=500,1,XB GRILLE: FORD F150 RAPTOR 10-20 / SET
+lf800,MERGE,https://images.wheelpros.com/Accessories/LF800.png,1,SEALED BEAM MOR SEALED3 90MM  LOW BEAM
 lf802.2,MERGE,https://images.wheelpros.com/Accessories/LF802.2.png,1,SEALED3 90MM SEALED BEAM HIGH LOW 3W
 lf90,MERGE,https://images.wheelpros.com/Accessories/LF90.png,1,XB LED FOGS TYPE C PAIR
 lf964,MERGE,https://images.wheelpros.com/Accessories/LF964.png,1,XB LED FOGS TYPE PORSCHE 964 PAIR/PAINT
@@ -9365,7 +9364,6 @@ sb18608,MERGE,https://images.wheelpros.com/Accessories/SB18608.png,1,LONG SIDE P
 sb2080,MERGE,https://images.wheelpros.com/Accessories/SB2080.png,1,BRONCO 2D WATER RESIST COVER W DOOR FLAP
 sb2081,MERGE,https://images.wheelpros.com/Accessories/SB2081.png,1,BRONCO 4D WATER RESIST COVER W DOOR FLAP
 sb23047r,MERGE,https://images.wheelpros.com/Accessories/SB23047R.png,1,D-RING 3/4IN PIN 4.75 TON
-sb2583,MERGE,https://images.wheelpros.com/Accessories/SB2583.png,1,OVERLAND GEN2 TENT STD
 sb2588,MERGE,https://images.wheelpros.com/Accessories/SB2588.png,1,OVRLND GEN2 TENT ANNEX
 sb2594,MERGE,https://images.wheelpros.com/Accessories/SB2594.png,1,GEN2 8FT AWNING MESH ROOM
 sb2725,MERGE,https://images.wheelpros.com/Accessories/SB2725.png,1,PREMIUM WINCH ACC BAG
@@ -9410,7 +9408,6 @@ sb2983-05,MERGE,https://images.wheelpros.com/Accessories/SB2983-05.png,1,SHOE BA
 sb2983-09,MERGE,https://images.wheelpros.com/Accessories/SB2983-09.png,1,LATERN
 sb2983-14,MERGE,https://images.wheelpros.com/Accessories/SB2983-14.png,1,TELESCOPING TENT LADDER
 sb2983-19,MERGE,https://images.wheelpros.com/Accessories/SB2983-19.png,1,INTERNAL BUNGEE CORDS
-sb2984,MERGE,https://images.wheelpros.com/Accessories/SB2984.png,1,OVERLAND XL HARD SHELL ROOFTOP TENT
 sb2985,MERGE,https://images.wheelpros.com/Accessories/SB2985.png,1,ALUMINUM SIDE OPENING ROOF TOP TENT RTT
 sb2986,MERGE,https://images.wheelpros.com/Accessories/SB2986.png,1,ALUMINUM POP-UP ROOF TOP TENT RTT
 sb2989,MERGE,https://images.wheelpros.com/Accessories/SB2989.png,1,BASECAMP FRDG/FRZR 75L
@@ -9419,7 +9416,6 @@ sb4505,MERGE,https://images.wheelpros.com/Accessories/SB4505.png,1,STORAGE WEATH
 sb4530,MERGE,https://images.wheelpros.com/Accessories/SB4530.png,1,STORAGE WEATHERPROOF HARD CASE 30 LITER
 sb45304jthdw,MERGE,https://images.wheelpros.com/Accessories/SB45304JTHDW.png,1,HARDWARE KIT FOR 45304JT
 sb45454,MERGE,https://images.wheelpros.com/Accessories/SB45454.png,1,JK 4DR DEFENDER ROOF RACK-NEEDS SBDS31-4
-sb45454jl,MERGE,https://images.wheelpros.com/Accessories/SB45454JL.png,1,JL 4DR DEFENDER ROOF RACK-ONE PIECE
 sb4556,MERGE,https://images.wheelpros.com/Accessories/SB4556.png,1,GEAR BOX HARD PROTECTIVE CASE 56L
 sb4591,MERGE,https://images.wheelpros.com/Accessories/SB4591.png,1,STORAGE WEATHERPROOF HARD CASE 91 LITER
 sb471201,MERGE,https://images.wheelpros.com/Accessories/SB471201.png,1,NEOPRENE SEAT COVER SET
@@ -10713,6 +10709,7 @@ xs2cap1540-sb38,MERGE,https://images.wheelpros.com/Accessories/XS2CAP1540-SB38.p
 xsbrs14c-gb,MERGE,https://images.wheelpros.com/Accessories/XSBRS14C-GB.png,1,"XS BEAD RING 14"" - GLOSS BLACK"
 xsbrs14c-mach,MERGE,https://images.wheelpros.com/Accessories/XSBRS14C-MACH.png,1,"XS BEAD RING 14"" - MACHINED"
 xsbrs15a-black,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-BLACK.png,1,"XS STANDARD RING 15"" 16 BOLT - BLACK"
+xsbrs15a-blue,MERGE,https://images.wheelpros.com/Accessories/XSBRS15A-BLUE.png,1,"XS STANDARD RING 15"" 16 BOLT - BLUE"
 xscap110115,MERGE,https://images.wheelpros.com/Accessories/XSCAP110115.png,1,XS CAP 110/115 - SATIN BLACK
 xscap137,MERGE,https://images.wheelpros.com/Accessories/XSCAP137.png,1,XS CAP 137 - SATIN BLACK
 xt10,MERGE,https://images.wheelpros.com/Accessories/XT10.png,1,HD RELAY LIGHT BAR

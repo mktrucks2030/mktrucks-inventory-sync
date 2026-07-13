@@ -799,6 +799,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000003990745,MERGE,https://images.wheelpros.com/Accessories/000000000003990745.png,1,ADVANTEK M220 HD DIFFERENTIAL COVER KIT
 000000000003991091,MERGE,https://images.wheelpros.com/Accessories/000000000003991091.png,1,JK CRD60 RR AXLE BRKT ARM/SHOCK PASS LWR
 000000000003992790,MERGE,https://images.wheelpros.com/Accessories/000000000003992790.png,1,TJ DANA 44/60 FR AXLE BRKT ARM PASS UPR
+000000000003992861,MERGE,https://images.wheelpros.com/Accessories/000000000003992861.png,1,TJ D44/60 FR/RR AXLE BRKT ARM DRVR LWR
 000000000003999235,MERGE,https://images.wheelpros.com/Accessories/000000000003999235.png,1,JK RR AXLE SHAFT D44 RUBI FF 32-SPLINE
 000000000003999236,MERGE,https://images.wheelpros.com/Accessories/000000000003999236.png,1,JK AXLE SHAFT PAIR D44 FF RR 30 SPL
 000000000004000010,MERGE,https://images.wheelpros.com/Accessories/000000000004000010.png,1,TJ DANA 44/60 FR AXLE SWAY BAR MOUNT
@@ -834,7 +835,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000004304175,MERGE,https://images.wheelpros.com/Accessories/000000000004304175.png,1,XJ 97-01 RH EMERGENCY BRAKE CABLE
 000000000004304400,MERGE,https://images.wheelpros.com/Accessories/000000000004304400.png,1,JK REAR BRAKE LINE EXTENSION KIT
 000000000004304411,MERGE,https://images.wheelpros.com/Accessories/000000000004304411.png,1,JK 13.5” BRAKE ROTOR -SLOTTED-REAR RIGHT
-000000000004304412,MERGE,https://images.wheelpros.com/Accessories/000000000004304412.png,1,JK 13.5” BRAKE ROTOR -SLOTTED -REAR LEFT
 000000000004304450,MERGE,https://images.wheelpros.com/Accessories/000000000004304450.png,1,JK REAR BIG ROTOR KIT - SOLID - 5-LUG
 000000000004304460,MERGE,https://images.wheelpros.com/Accessories/000000000004304460.png,1,JK REAR BIG ROTOR KIT - SLOTTED - 5-LUG
 000000000004350310,MERGE,https://images.wheelpros.com/Accessories/000000000004350310.png,1,JK 30” BRAKE LINE KIT - REAR
@@ -888,7 +888,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000004802100,MERGE,https://images.wheelpros.com/Accessories/000000000004802100.png,1,RECOVERY D-RING SHACKLE
 000000000004802190,MERGE,https://images.wheelpros.com/Accessories/000000000004802190.png,1,TERAFLEX RECOVERY D-RING SHACKLE
 000000000004803300,MERGE,https://images.wheelpros.com/Accessories/000000000004803300.png,1,JK D-RING MOUNT
-000000000004804180,MERGE,https://images.wheelpros.com/Accessories/000000000004804180.png,1,JK MP TAILGATE TABLE W/ CUTTING BOARD
 000000000004804310,MERGE,https://images.wheelpros.com/Accessories/000000000004804310.png,1,JL/JK/BRONCO 6G TAILGATE TABLE W/ BOARD
 000000000004807200,MERGE,https://images.wheelpros.com/Accessories/000000000004807200.png,1,TERAFLEX AIR DEFLATOR KEYCHAIN
 000000000004808600,MERGE,https://images.wheelpros.com/Accessories/000000000004808600.png,1,JL TRANSIT MUD FLAP KIT
@@ -950,8 +949,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 000000000004923202,MERGE,https://images.wheelpros.com/Accessories/000000000004923202.png,1,TJ HIGH STEER HD TRACKBAR-FRONT (3.5-6”)
 000000000004923300,MERGE,https://images.wheelpros.com/Accessories/000000000004923300.png,1,TJ HIGH STEER DRAG LINK/TIE ROD END KIT
 000000000004925100,MERGE,https://images.wheelpros.com/Accessories/000000000004925100.png,1,TJ TIE ROD/DRAG LINK END BOOT
-000000000004937330,MERGE,https://images.wheelpros.com/Accessories/000000000004937330.png,1,JK FRONT LOWER CONTROL ARM SKIDPLATE KIT
-000000000004937400,MERGE,https://images.wheelpros.com/Accessories/000000000004937400.png,1,JK REAR LOWER CONTROL ARM SKID PLATE KIT
 000000000004940071,MERGE,https://images.wheelpros.com/Accessories/000000000004940071.png,1,TJ HD GAS TANK SKID PLATE KIT
 000000000004943800,MERGE,https://images.wheelpros.com/Accessories/000000000004943800.png,1,TJ SPEEDBUMP FRONT MOUNTING BRACKETS
 000000000004944800,MERGE,https://images.wheelpros.com/Accessories/000000000004944800.png,1,TJ SPEEDBUMP REAR MOUNTING BRACKETS
@@ -3698,6 +3695,7 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 42128ti,MERGE,https://images.wheelpros.com/Accessories/42128TI.png,1,SD ACORN ALUM 12-1.25 TI BULK
 42133bl,MERGE,https://images.wheelpros.com/Accessories/42133BL.png,1,SD ACORN ALUM 5-LUG 12-1.50 BLUE
 42133rd,MERGE,https://images.wheelpros.com/Accessories/42133RD.png,1,SD ACORN ALUM 5-LUG 12-1.50 RED
+42138al,MERGE,https://images.wheelpros.com/Accessories/42138AL.png,1,SD ACORN ALUM 12-1.50 SLVR BULK
 42138bl,MERGE,https://images.wheelpros.com/Accessories/42138BL.png,1,SD ACORN ALUM 12-1.50 BLUE BULK
 42138rd,MERGE,https://images.wheelpros.com/Accessories/42138RD.png,1,SD ACORN ALUM 12-1.50 RED BULK
 42138ti,MERGE,https://assets.wheelpros.com/transform/0fef2ae2-7ceb-4da6-a6bb-6663f0de2598/42138TI-O-png?size=500,1,SD ACORN ALUM 12-1.50 TI BULK
@@ -3748,7 +3746,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 44-35400,MERGE,https://assets.wheelpros.com/transform/26761004-351e-4222-a5b7-92a3f0ea4357/44-35400-jpg?size=500,1,"RL 4''+2"" 2025 GM 1500 ZR2/AT4X LIFT KIT"
 44-35425,MERGE,https://images.wheelpros.com/Accessories/44-35425.png,1,RL 4'' 2025 GM 1500 TRAIL BOSS/AT4
 44-35600,MERGE,https://images.wheelpros.com/Accessories/44-35600.png,1,"RL 6''+2"" 2025 GM 1500 ZR2/AT4X LIFT KIT"
-44-35615,MERGE,https://assets.wheelpros.com/transform/7c792c30-2030-4f2e-b1f2-2ae200c1cd24/44-35615-jpg?size=500,1,RL 6'' 2025 GM 1500 LIFT KIT W/ ARC
 44-35620,MERGE,https://assets.wheelpros.com/transform/dc3fa62c-9195-4215-ae56-855c5c199bd4/44-35620-jpg?size=500,1,RL 6'' 2025 GM 1500 LIFT KIT-W FALCON
 44-35625,MERGE,https://images.wheelpros.com/Accessories/44-35625.png,1,RL 6'' 2025 GM 1500 TRAIL BOSS/AT4
 44-35815,MERGE,https://images.wheelpros.com/Accessories/44-35815.png,1,RL 8'' 2025 GM 1500 LIFT KIT W/ ARC
@@ -3948,7 +3945,6 @@ Handle,Command,Image Src,Image Position,Image Alt Text
 49-19630,MERGE,https://assets.wheelpros.com/transform/8f3eb206-4f2f-44e4-ab95-b6ff7798092f/RL-6-LIFT-KIT-SHOCKS-RAM-3500?size=500,1,RL 6'' LIFT KIT SHOCKS RAM 3500
 49-23422,MERGE,https://images.wheelpros.com/Accessories/49-23422.png,1,23+ FORD SD 4'' FALCON RADIUS DROPS 2.1
 49-23423,MERGE,https://images.wheelpros.com/Accessories/49-23423.png,1,23+ FORD SD 4'' FALCON RADIUS ARMS 2.1
-49-27420,MERGE,https://assets.wheelpros.com/transform/49347e94-bf94-4f1c-b41c-b946e5a597fe/FORD-SD-4-FALCON-SHOCKS-RADIUS-DROPS?size=500,1,FORD SD 4'' FALCON SHOCKS RADIUS DROPS
 49-27421,MERGE,https://assets.wheelpros.com/transform/f640f541-a10b-4150-9ced-e4980e32a25f/49-27421-png?size=500,1,FORD SD 4'' FALCON SHOCKS RADIUS ARMS
 49-27422,MERGE,https://images.wheelpros.com/Accessories/49-27422.png,1,FORD SD 4'' FALCON 2.1 W/ RADIUS DROPS
 49-27423,MERGE,https://images.wheelpros.com/Accessories/49-27423.png,1,FORD SD 4'' FALCON 2.1 W/ RADIUS ARMS
@@ -8109,6 +8105,7 @@ ks2cap44-sb,MERGE,https://images.wheelpros.com/Accessories/KS2CAP44-SB.png,1,KS 
 ks2cap44-sb2,MERGE,https://images.wheelpros.com/Accessories/KS2CAP44-SB2.png,1,KS CAP BOLT-ON (SB/CH/SB) - 4X156
 ksbrs14c-gb,MERGE,https://assets.wheelpros.com/transform/c5a6fd85-73ec-423b-922d-524199fd9f3f/KSBRS14C-GB-A1-png?size=500,1,"KS BEAD RING 14"" - GLOSS BLACK"
 ksbrs14c-mach,MERGE,https://assets.wheelpros.com/transform/0f217c21-27e8-4b41-8a66-3e0cdfa989a2/KSBRS14C-MACH-A1-png?size=500,1,"KS BEAD RING 14"" - MACHINED"
+ksbrs14c-sb,MERGE,https://assets.wheelpros.com/transform/d3d8d5c7-b16c-43ae-ad6c-17cb342d8ed4/KSBRS14C-SB-A1-png?size=500,1,"KS BEAD RING 14"" - SATIN BLACK"
 ksbrs15c-gb,MERGE,https://assets.wheelpros.com/transform/c044858c-1a25-42f4-a384-68cb95080b8b/KSBRS15C-GB-A1-png?size=500,1,"KS BEAD RING 15"" - GLOSS BLACK"
 ksbrs15c-mach,MERGE,https://assets.wheelpros.com/transform/3f75366e-5ab6-467d-9f6f-138ed7192f1b/KSBRS15C-MACH-A1-png?size=500,1,"KS BEAD RING 15"" - MACHINED"
 ksbrs15c-sb,MERGE,https://assets.wheelpros.com/transform/f5f709c4-0a60-42da-8c12-e5fca0a98a85/KSBRS15C-SB-A1-png?size=500,1,"KS BEAD RING 15"" - SATIN BLACK"
@@ -8232,7 +8229,6 @@ lf2-473,MERGE,https://images.wheelpros.com/Accessories/LF2-473.png,1,XB GEN 2 LE
 lf2-474r,MERGE,https://images.wheelpros.com/Accessories/LF2-474R.png,1,XB EVO HEADS 370Z 09 21 XRGB
 lf2-474y,MERGE,https://images.wheelpros.com/Accessories/LF2-474Y.png,1,XB EVO HEADS 370Z 09 21 HYBRID
 lf2-477,MERGE,https://images.wheelpros.com/Accessories/LF2-477.png,1,LED HEAD SUBARU IMPREZA WRX 08-14 GEN 2
-lf2-506,MERGE,https://images.wheelpros.com/Accessories/LF2-506.png,1,XB EVO HEADS 09 14 F150 10 14 SVT
 lf2-506y,MERGE,https://images.wheelpros.com/Accessories/LF2-506Y.png,1,XB EVO HEADS F150 09 14 HYBRID
 lf2-520,MERGE,https://images.wheelpros.com/Accessories/LF2-520.png,1,XB EVO HEADS DODGE RAM 09 18
 lf2-520r,MERGE,https://images.wheelpros.com/Accessories/LF2-520R.png,1,XB EVO RGB HEADS DODGE RAM 09 18
@@ -9361,7 +9357,6 @@ sb1505,MERGE,https://images.wheelpros.com/Accessories/SB1505.png,1,TRAIL GLOVES 
 sb17185hdw,MERGE,https://images.wheelpros.com/Accessories/SB17185HDW.png,1,HARDWARE FOR 17185
 sb17190-01,MERGE,https://images.wheelpros.com/Accessories/SB17190-01.png,1,6IN FENDER TUBULAR PROD
 sb17190-03,MERGE,https://images.wheelpros.com/Accessories/SB17190-03.png,1,6IN FENDER TUBULAR PROD
-sb17190-04,MERGE,https://images.wheelpros.com/Accessories/SB17190-04.png,1,6IN FENDER TUBULAR PROD
 sb17190hdw,MERGE,https://images.wheelpros.com/Accessories/SB17190HDW.png,1,HARDWARE KIT
 sb17191-01,MERGE,https://images.wheelpros.com/Accessories/SB17191-01.png,1,6IN FENDER TUBULAR PROD
 sb17191-02,MERGE,https://images.wheelpros.com/Accessories/SB17191-02.png,1,6IN FENDER TUBULAR PROD
@@ -9370,7 +9365,6 @@ sb17191-04,MERGE,https://images.wheelpros.com/Accessories/SB17191-04.png,1,6IN F
 sb17191hdw,MERGE,https://images.wheelpros.com/Accessories/SB17191HDW.png,1,HARDWARE KIT
 sb18601,MERGE,https://images.wheelpros.com/Accessories/SB18601.png,1,RETRACTABLE RATCHET STRAPS
 sb18604hdw,MERGE,https://images.wheelpros.com/Accessories/SB18604HDW.png,1,HARDWARE FOR 18604
-sb18607,MERGE,https://images.wheelpros.com/Accessories/SB18607.png,1,TALL DEFENDER BED RACK
 sb18608,MERGE,https://images.wheelpros.com/Accessories/SB18608.png,1,LONG SIDE PANELS FOR TALL DEFENDER BED R
 sb2080,MERGE,https://images.wheelpros.com/Accessories/SB2080.png,1,BRONCO 2D WATER RESIST COVER W DOOR FLAP
 sb2081,MERGE,https://images.wheelpros.com/Accessories/SB2081.png,1,BRONCO 4D WATER RESIST COVER W DOOR FLAP
@@ -9423,9 +9417,6 @@ sb2952,MERGE,https://images.wheelpros.com/Accessories/SB2952.png,1,8FT TELESCOPI
 sb2953,MERGE,https://images.wheelpros.com/Accessories/SB2953.png,1,10FT TELESCOPING OVERLAND LIGHT PRO
 sb2983-03,MERGE,https://images.wheelpros.com/Accessories/SB2983-03.png,1,PAIR OF SHORT WINDOW RODS
 sb2983-05,MERGE,https://images.wheelpros.com/Accessories/SB2983-05.png,1,SHOE BAG
-sb2983-09,MERGE,https://images.wheelpros.com/Accessories/SB2983-09.png,1,LATERN
-sb2983-14,MERGE,https://images.wheelpros.com/Accessories/SB2983-14.png,1,TELESCOPING TENT LADDER
-sb2983-19,MERGE,https://images.wheelpros.com/Accessories/SB2983-19.png,1,INTERNAL BUNGEE CORDS
 sb2983-22,MERGE,https://images.wheelpros.com/Accessories/SB2983-22.png,1,INTERNAL GAS STRUT 1 PC
 sb2989,MERGE,https://images.wheelpros.com/Accessories/SB2989.png,1,BASECAMP FRDG/FRZR 75L
 sb317xxhdw,MERGE,https://images.wheelpros.com/Accessories/SB317XXHDW.png,1,HARDWARE SET FOR 317XX
@@ -9488,8 +9479,6 @@ sb76621-20,MERGE,https://images.wheelpros.com/Accessories/SB76621-20.png,1,NYLON
 sb76631,MERGE,https://images.wheelpros.com/Accessories/SB76631.png,1,SRC SIDE ARMOR
 sb766hdw,MERGE,https://images.wheelpros.com/Accessories/SB766HDW.png,1,3/8INX1IN SELF TAPPING SIDE
 sb76715hdw,MERGE,https://images.wheelpros.com/Accessories/SB76715HDW.png,1,HARDWARE FOR 76715
-sb76716-03,MERGE,https://images.wheelpros.com/Accessories/SB76716-03.png,1,FRONT CROSS BAR AND HDW
-sb76716hdw,MERGE,https://images.wheelpros.com/Accessories/SB76716HDW.png,1,HARDWARE PACK 76716
 sb76717-02,MERGE,https://images.wheelpros.com/Accessories/SB76717-02.png,1,SCR ROOF RACK  JK 4DR
 sb76724,MERGE,https://images.wheelpros.com/Accessories/SB76724.png,1,FRONT BUMPER
 sb76740d,MERGE,https://images.wheelpros.com/Accessories/SB76740D.png,1,SRC CLSC FRT BMPR BLK
@@ -9501,33 +9490,23 @@ sb76810,MERGE,https://images.wheelpros.com/Accessories/SB76810.png,1,XRC FRONT B
 sb76812,MERGE,https://images.wheelpros.com/Accessories/SB76812.png,1,XJ XRC STINGER
 sb76839hdw,MERGE,https://images.wheelpros.com/Accessories/SB76839HDW.png,1,HARDWARE PACK
 sb76851-01,MERGE,https://images.wheelpros.com/Accessories/SB76851-01.png,1,XRC RR SWINGAWAY BMPR
-sb76870hdw,MERGE,https://images.wheelpros.com/Accessories/SB76870HDW.png,1,HARDWARE KIT
 sb76871,MERGE,https://images.wheelpros.com/Accessories/SB76871.png,1,XRC ROCK GRDS W/STEPBLK
 sb76872,MERGE,https://images.wheelpros.com/Accessories/SB76872.png,1,XRC TUBE FENDERS BLK TXT
 sb76880,MERGE,https://images.wheelpros.com/Accessories/SB76880.png,1,XRC FRONT FENDERS
 sb76883-01,MERGE,https://images.wheelpros.com/Accessories/SB76883-01.png,1,LIGHT KIT FOR 76883
 sb76885hdw,MERGE,https://images.wheelpros.com/Accessories/SB76885HDW.png,1,HARDWARE KIT FOR 76885
-sb76887hdw,MERGE,https://images.wheelpros.com/Accessories/SB76887HDW.png,1,HARDWARE FOR 76887
 sb76892,MERGE,https://images.wheelpros.com/Accessories/SB76892.png,1,XRC JK ATLAS FRONT BUMPER
-sb76895hdw,MERGE,https://images.wheelpros.com/Accessories/SB76895HDW.png,1,HARDWARE FOR 76895
-sb76900hdw,MERGE,https://images.wheelpros.com/Accessories/SB76900HDW.png,1,HARDWARESET FOR 76900
-sb76901-01,MERGE,https://images.wheelpros.com/Accessories/SB76901-01.png,1,76901 PADDING KIT
 sb76901hdw,MERGE,https://images.wheelpros.com/Accessories/SB76901HDW.png,1,76901 HARDWARE KIT
 sb76902-01,MERGE,https://images.wheelpros.com/Accessories/SB76902-01.png,1,FOAM PAD FOR SRC CAGE
 sb76902hdw,MERGE,https://images.wheelpros.com/Accessories/SB76902HDW.png,1,HARDWARESET FOR 76902
 sb76903-01,MERGE,https://images.wheelpros.com/Accessories/SB76903-01.png,1,76903 PADDING KIT
 sb76903hdw,MERGE,https://images.wheelpros.com/Accessories/SB76903HDW.png,1,76903 HARDWARE KIT
 sb76904-01,MERGE,https://images.wheelpros.com/Accessories/SB76904-01.png,1,76904 PADDING KIT
-sb76904hdw,MERGE,https://images.wheelpros.com/Accessories/SB76904HDW.png,1,76904 HARDWARE KIT
 sb76922hdw,MERGE,https://images.wheelpros.com/Accessories/SB76922HDW.png,1,HARDWARE KIT FOR 76922
-sb769301,MERGE,https://images.wheelpros.com/Accessories/SB769301.png,1,PR GRAB HANDLES  PADDED
 sb76932,MERGE,https://images.wheelpros.com/Accessories/SB76932.png,1,ALUMINUM GRAB HANDLES
 sb769520,MERGE,https://images.wheelpros.com/Accessories/SB769520.png,1,MAG LIGHT HOLDER
-sb76980hdw,MERGE,https://images.wheelpros.com/Accessories/SB76980HDW.png,1,HARDWARE PACK
-sb76981hdw,MERGE,https://images.wheelpros.com/Accessories/SB76981HDW.png,1,HARDWARE PACK
 sb76982hdw,MERGE,https://images.wheelpros.com/Accessories/SB76982HDW.png,1,HARDWARE PACK
 sb76994,MERGE,https://images.wheelpros.com/Accessories/SB76994.png,1,MAG-ARMOR (SET OF 15)
-sb7700hdw,MERGE,https://images.wheelpros.com/Accessories/SB7700HDW.png,1,HARDWARE FOR 7700
 sb77634,MERGE,https://images.wheelpros.com/Accessories/SB77634.png,1,SRC SIDE ARMOR
 sb77717-02,MERGE,https://images.wheelpros.com/Accessories/SB77717-02.png,1,SRC ROOF RACK JL 4DR
 sb77724,MERGE,https://images.wheelpros.com/Accessories/SB77724.png,1,GEN 2 SRC FRONT
@@ -9548,23 +9527,18 @@ sb79734,MERGE,https://images.wheelpros.com/Accessories/SB79734.png,1,APOLLO SLID
 sb80000hdw,MERGE,https://images.wheelpros.com/Accessories/SB80000HDW.png,1,HARDWARE 800XX SEAT
 sb835,MERGE,https://images.wheelpros.com/Accessories/SB835.png,1,COVER W/LOCK&CABLE
 sb845,MERGE,https://images.wheelpros.com/Accessories/SB845.png,1,JL FULL COVER GRAY
-sb87400-33,MERGE,https://images.wheelpros.com/Accessories/SB87400-33.png,1,LIMIT STRAP (PAIR)
-sb87400-51,MERGE,https://images.wheelpros.com/Accessories/SB87400-51.png,1,SHOCK ( SINGLE)
 sb87400-54,MERGE,https://images.wheelpros.com/Accessories/SB87400-54.png,1,DRAW-BAR (TONGUE)
 sb87401,MERGE,https://images.wheelpros.com/Accessories/SB87401.png,1,G.E.A.R. CARGO LINER BLK
 sb87451,MERGE,https://images.wheelpros.com/Accessories/SB87451.png,1,TOW BAR ADAPTER BRACKET
 sb89735,MERGE,https://images.wheelpros.com/Accessories/SB89735.png,1,97-06 WRGL DOOR SKIN ONLY
-sb90-4263,MERGE,https://images.wheelpros.com/Accessories/SB90-4263.png,1,RUBBER BUMP STOPS
 sb90101,MERGE,https://images.wheelpros.com/Accessories/SB90101.png,1,WINDSHIELD CHANNEL
 sb90106,MERGE,https://images.wheelpros.com/Accessories/SB90106.png,1,GEN 2 WINDHSIELD HEADER
 sb9070235,MERGE,https://images.wheelpros.com/Accessories/SB9070235.png,1,REPL TOP W TINT BLK DIA
-sb9070235-drwd,MERGE,https://images.wheelpros.com/Accessories/SB9070235-DRWD.png,1,9070235 DVR REAR WINDOW
 sb9070235-prwd,MERGE,https://images.wheelpros.com/Accessories/SB9070235-PRWD.png,1,9070235 PASS REAR WINDOW
 sb9073135k,MERGE,https://images.wheelpros.com/Accessories/SB9073135K.png,1,BOWLESS COMBO TOP KIT
 sb9073235,MERGE,https://images.wheelpros.com/Accessories/SB9073235.png,1,BOWLESS COMBO TOP W/TINT
 sb9075235prwd,MERGE,https://images.wheelpros.com/Accessories/SB9075235PRWD.png,1,9075235 PSSNGER RR WINDOW
 sb9080235-drwd,MERGE,https://images.wheelpros.com/Accessories/SB9080235-DRWD.png,1,9080235 DVR REAR WINDOW
-sb9080235-prwd,MERGE,https://images.wheelpros.com/Accessories/SB9080235-PRWD.png,1,9080235 PASS REAR WINDOW
 sb9083135k,MERGE,https://images.wheelpros.com/Accessories/SB9083135K.png,1,BOWLESS COMBO TOP KIT
 sb9085235prwd,MERGE,https://images.wheelpros.com/Accessories/SB9085235PRWD.png,1,9085235 PSSNGR RR WINDOW
 sb9085235rrwd,MERGE,https://images.wheelpros.com/Accessories/SB9085235RRWD.png,1,9085235 REAR WINDOW
@@ -9579,7 +9553,6 @@ sb955,MERGE,https://images.wheelpros.com/Accessories/SB955.png,1,FORD BRONCO 4 D
 sb95500-02,MERGE,https://images.wheelpros.com/Accessories/SB95500-02.png,1,16 LONG CORDS
 sb97412-41,MERGE,https://images.wheelpros.com/Accessories/SB97412-41.png,1,WIRE ROPE W/ FIX BOLT
 sb97495-09,MERGE,https://images.wheelpros.com/Accessories/SB97495-09.png,1,BRAKE POSITIONING BOLT
-sb97495-72,MERGE,https://images.wheelpros.com/Accessories/SB97495-72.png,1,FUSE FOR XRC WINCHES
 sb97500,MERGE,https://images.wheelpros.com/Accessories/SB97500.png,1,EXTENDED SHADE TOP WITH
 sb97517,MERGE,https://images.wheelpros.com/Accessories/SB97517.png,1,X2O-17.5K WATERPROOF
 sb97710s,MERGE,https://images.wheelpros.com/Accessories/SB97710S.png,1,10K SYNTHETIC SPECTRA
@@ -9606,9 +9579,7 @@ sb99210-2,MERGE,https://images.wheelpros.com/Accessories/SB99210-2.png,1,XRC AIR
 sb9970217,MERGE,https://images.wheelpros.com/Accessories/SB9970217.png,1,REPL TOP W TINT DEN SPC
 sb9973235,MERGE,https://images.wheelpros.com/Accessories/SB9973235.png,1,BOWLESS COMBO TOP W/TINT
 sbc1980cc-tx,MERGE,https://images.wheelpros.com/Accessories/SBC1980CC-TX.png,1,CHEVY GMC 1500/2500/3500 TEXTURED BLACK
-sbcc122,MERGE,https://images.wheelpros.com/Accessories/SBCC122.png,1,RECOIL RECOVERY ROPE
 sbcc220,MERGE,https://images.wheelpros.com/Accessories/SBCC220.png,1,TOW STRAP 2IN X 20FT
-sbcc230,MERGE,https://images.wheelpros.com/Accessories/SBCC230.png,1,TOW STRAP 2IN X 30FT
 sbcc330,MERGE,https://images.wheelpros.com/Accessories/SBCC330.png,1,TOW STRAP 3IN X 30FT
 sbcc408,MERGE,https://images.wheelpros.com/Accessories/SBCC408.png,1,TREE STRAP 4IN X 8FT
 sbcc420,MERGE,https://images.wheelpros.com/Accessories/SBCC420.png,1,TREE SAVER 4IN X 20FT
@@ -10739,6 +10710,7 @@ xdstar-wt-pk,MERGE,https://images.wheelpros.com/Accessories/XDSTAR-WT-PK.png,1,X
 xdstar-yl-pk,MERGE,https://images.wheelpros.com/Accessories/XDSTAR-YL-PK.png,1,XDS STAR LOGO - YELLOW (5PK)
 xrl05,MERGE,https://images.wheelpros.com/Accessories/XRL05.png,1,MORIMOTO ROCK LIGHT KIT: WHITE  4 PACK
 xrl10,MERGE,https://images.wheelpros.com/Accessories/XRL10.png,1,MORIMOTO ROCK LIGHT KIT: WHITE  6 PACK
+xrl15.2,MERGE,https://images.wheelpros.com/Accessories/XRL15.2.png,1,ROCK LIGHT KIT WHT LED 8 PACK
 xrl20.2,MERGE,https://images.wheelpros.com/Accessories/XRL20.2.png,1,ROCK LIGHT KIT RGB LED 4 PACK
 xrl25,MERGE,https://images.wheelpros.com/Accessories/XRL25.png,1,MORIMOTO ROCK LIGHT KIT: RGB  6 PACK
 xrl30,MERGE,https://images.wheelpros.com/Accessories/XRL30.png,1,USE XRL30.2 ROCK LIGHT KIT RGB LED 8 PCK

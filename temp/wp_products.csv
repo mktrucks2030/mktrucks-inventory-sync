@@ -1,17 +1,17 @@
 Handle,Command,Image Src,Image Position,Image Alt Text
-1790prm-26140r12,MERGE,https://assets.wheelpros.com/transform/c3feae54-07ab-481f-9551-3075aeb059af/truck-wheels-rims-black-rhino-primm-5-lug-candy-red-with-black-bolts-17x9-std-org-png?size=500,1,BR PRIMM 17X9 6X139 -12 112 CNDY RED BLK
-1790prm-85127r71,MERGE,https://assets.wheelpros.com/transform/c3feae54-07ab-481f-9551-3075aeb059af/truck-wheels-rims-black-rhino-primm-5-lug-candy-red-with-black-bolts-17x9-std-org-png?size=500,1,BR PRIMM 17X9 5X127 -18 71 CNDY RED BLK
+1790prm-26140r12,MERGE,https://images.wheelpros.com/hBRPRMR.png,1,BR PRIMM 17X9 6X139 -12 112 CNDY RED BLK
+1790prm-85127r71,MERGE,https://images.wheelpros.com/hBRPRMR.png,1,BR PRIMM 17X9 5X127 -18 71 CNDY RED BLK
 1795ars-88180m25,MERGE,https://assets.wheelpros.com/transform/8543e82e-e1a2-45d3-a6c0-64e2453be852/arsenal-9-5-truck-wheels-rims-black-rhino-arsenal-5-lug-textured-matte-black-std-png?size=500,1,BR ARSENAL 17X9.5 8X180 -18 125 TXT MBLK
 1805vzf555130m71,MERGE,https://images.wheelpros.com/hVIVZFM.png,1,VI ZUFFEN 18X10.5 5X130B +55 71 M-BLK
 1880p5c405110b72,MERGE,https://images.wheelpros.com/hPEP5CB.png,1,P5C 18X8 5X110 72.1 +40 G-BLK-MACH
 1890wka-86140m12,MERGE,https://images.wheelpros.com/hBRWKAM.png,1,BR WANAKA 18X9 6X139 -18 112 M-BLK
-1895prm-26140s12,MERGE,https://assets.wheelpros.com/transform/7f5673ad-8a74-43b9-87d6-be2a4eedf29e/web_truck-wheels-rims-black-rhino-primm-silver-mirror-face-17x8-5-std-org-png?size=500,1,BR PRIMM 18X9.5 6X139 -12 112 SLV MIR
+1895prm-26140s12,MERGE,https://images.wheelpros.com/hBRPRMS.png,1,BR PRIMM 18X9.5 6X139 -12 112 SLV MIR
 1895rpd-85127m71a,MERGE,https://images.wheelpros.com/hBRRPDM.png,1,RAPID 18X9.5 5X5 71 -18 M-BLK
-1980p3a325112s72,MERGE,https://assets.wheelpros.com/transform/126e62eb-44bd-4b4d-8b66-d0d9edcb3375/petrol-P3A-5-lugs-silver-machine-cut-face-std-org-copy-png?size=500,1,P3A 19X8 5X112 72.1 +32 SLV-MACH
-2005hmh685121s70,MERGE,https://assets.wheelpros.com/transform/423093f9-05db-4825-8d5f-6e23d5bf2930/CRAY-HAMMERHEAD-21X12-5LUG-ET12-GLOSS-SILVER-W-MIRROR-CUT-FACE-A1-png?size=500,1,HAMMERHEAD 20X10.5 5X4.75 70 +68 GSLV-MR
+1980p3a325112s72,MERGE,https://images.wheelpros.com/hPEP3AS.png,1,P3A 19X8 5X112 72.1 +32 SLV-MACH
+2005hmh685121s70,MERGE,https://images.wheelpros.com/hCRHMHS.png,1,HAMMERHEAD 20X10.5 5X4.75 70 +68 GSLV-MR
 2085seb325112m72,MERGE,https://images.wheelpros.com/hTWSEBM.png,1,SEBRING 20X8.5 5X112 72.1 +32 M-BLK
 2095ary066140d12,MERGE,https://assets.wheelpros.com/transform/708d6386-417d-4ec7-86af-a811f3e41eb0/armory-9-5-truck-wheels-rims-black-rhino-armory-5-lug-desert-sand-std-png?size=500,1,BR ARMORY 20X9.5 6X139 +6 112 D-SAND
-2095stn126114d76,MERGE,https://assets.wheelpros.com/transform/25721ec3-e111-4b59-8fbd-5a3b7bc8652e/sentinel-truck-wheels-rims-black-rhino-sentinel-6-lug-desert-sand-matte-black-lip-edge-std-org-png?size=500,1,BR SENTNL 20X9.5 6X114 +12 76 D-SAND BLK
+2095stn126114d76,MERGE,https://images.wheelpros.com/hBRSTND.png,1,BR SENTNL 20X9.5 6X114 +12 76 D-SAND BLK
 213gb-2615831,MERGE,https://assets.wheelpros.com/transform/d800b755-6e47-4c69-b8b1-21d250e95af5/PERFORMANCE-REPLICAS-PR213GB-22X9-6LUG-ET28-GLOSS-BLACK-A1-png?size=500,1,PR213 26X10 6X5.5 78 +31 G-BLK
 ab040bx22050145,MERGE,https://assets.wheelpros.com/transform/7fc21099-03e5-4a82-9e54-78520e8f3b79/ASANTI-AB040-TIARA-22X10-5-5-ET38-GLOSS-BLACK-A1-png?size=500,1,TIARA 22X10.5 5X4.25/4.5 72 +45 G-BLK
 ab041ad20905927,MERGE,https://assets.wheelpros.com/transform/5206545e-3542-44be-8959-c81baa05f938/ASANTI-ABL41-ESQUIRE-20X9-5-ET45-GLOSS-ANTHRACITE-W-BRIGHT-MACHINED-A1-png?size=500,1,ESQUIRE 20X9 5X112/120 +27 G-ANTH MCH
@@ -7947,7 +7947,7 @@ xscap110115,MERGE,https://images.wheelpros.com/Accessories/XSCAP110115.png,1,XS 
 000000000004444401,MERGE,https://images.wheelpros.com/Accessories/000000000004444401.png,1,TJ-YJ-XJ NP231 SHORT SHAFT KIT
 000000000004940071,MERGE,https://images.wheelpros.com/Accessories/000000000004940071.png,1,TJ HD GAS TANK SKID PLATE KIT
 000000001425006022,MERGE,https://images.wheelpros.com/Accessories/000000001425006022.png,1,ATX CAP 4.25'' T-BLK P-THRU W/ATX LOGO
-10-3485,MERGE,https://assets.wheelpros.com/transform/32b6f351-84ba-4324-b775-63f9b4689058/RL-GM-HUB-CENTRIC-7-8-WHEEL-ADA?size=500,1,RL GM HUB CENTRIC 7/8'' WHEEL ADA
+10-3485,MERGE,https://images.wheelpros.com/Accessories/10-3485.png,1,RL GM HUB CENTRIC 7/8'' WHEEL ADA
 1003-40sb,MERGE,https://images.wheelpros.com/Accessories/1003-40SB.png,1,"ROTI 2.36""SNAPINCAP GL-SIL W/MT-BLK LOGO"
 1003-44mbv,MERGE,https://images.wheelpros.com/Accessories/1003-44MBV.png,1,FUEL SNAP IN CAP 80.6 OD (MB/GMTL)
 1003-88gbk,MERGE,https://images.wheelpros.com/Accessories/1003-88GBK.png,1,FUEL 5 BAR CAP GL-BLK BLUTNT 8L CAP1.75T
@@ -9632,7 +9632,6 @@ ccohm370g,MERGE,https://images.wheelpros.com/Accessories/CCOHM370G.png,1,CAP OHM
 d05-b,MERGE,https://images.wheelpros.com/Accessories/D05-B.png,1,LIP BOLTS M8X8 - SATIN BLACK
 gt20,MERGE,https://images.wheelpros.com/Accessories/GT20.png,1,PIGTAIL H1H3 FEMALE
 gtr.h083,MERGE,https://images.wheelpros.com/Accessories/GTR.H083.png,1,SWITCH GTR HALO SS MOMENTARYWHITE LED
-gtr.led601,MERGE,https://images.wheelpros.com/Accessories/GTR.LED601.png,1,921T15 GTR CARBIDE CANBUS 2 RED
 he982c01,MERGE,https://images.wheelpros.com/Accessories/HE982C01.png,1,HELO HE887 CHROME CAP
 kmcap101bxp6135sx,MERGE,https://images.wheelpros.com/Accessories/KMCAP101BXP6135SX.png,1,KM CAP BOLT-ON (GB/CH/GB) 6X5.5
 led1174,MERGE,https://images.wheelpros.com/Accessories/LED1174.png,1,MPM SHAFT MOUNT
